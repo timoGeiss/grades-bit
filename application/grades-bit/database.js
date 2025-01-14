@@ -18,25 +18,19 @@ export async function createConnection() {
 export async function createTables() {
     const db = database.connection;
     const statement = `
-			CREATE TABLE IF NOT EXISTS "grade" (
+			CREATE TABLE IF NOT EXISTS "note" (
 				"id" INTEGER NOT NULL UNIQUE,
-				"title" TEXT NOT NULL,
-                "value" DOUBLE NOT NULL,
-                "weight" DOUBLE NOT NULL,
+				"titel" TEXT NOT NULL,
+                "wert" DOUBLE NOT NULL,
+                "gewichtung" DOUBLE NOT NULL,
+                "fach_id" INTEGER NOT NULL,
+                FOREIGN KEY("fach_id") REFERENCES fach(id),
 				PRIMARY KEY("id" AUTOINCREMENT)
 			);
 						
-			CREATE TABLE IF NOT EXISTS "todo" (
+			CREATE TABLE IF NOT EXISTS "fach" (
 				"id" INTEGER NOT NULL UNIQUE,
-				"title" TEXT NOT NULL,
-				"description" TEXT NOT NULL,
-				"is_prioritised" BOOLEAN NOT NULL,
-				"board_id" INTEGER,
-				"state_id" INTEGER NOT NULL,
-				"category_id" INTEGER NOT NULL,
-				FOREIGN KEY("board_id") REFERENCES board(id),
-				FOREIGN KEY("state_id") REFERENCES state(id),
-				FOREIGN KEY("category_id") REFERENCES category(id),
+				"name" TEXT NOT NULL,
 				PRIMARY KEY("id" AUTOINCREMENT)
 			);
     `;
@@ -52,7 +46,7 @@ export async function createTables() {
 
 export async function checkIfTablesExist() {
     const db = database.connection;
-    const expected_tables = ["board", "state", "category", "todo"];
+    const expected_tables = ["note", "fach"];
     const actual_tables = [];
     let result = true;
     const statement = `
@@ -78,8 +72,8 @@ export async function checkIfTablesExist() {
 export async function insert(table, object) {
     const db = database.connection;
     const statement = `
-		INSERT INTO ${table} (${Object.keys(object).map(key=>`, ${key}`).join("").substring(2)} ${table==="todo"?", board_id":""})
-		VALUES (${Object.keys(object).map(attribute=>`, "${object[attribute]}"`).join("").substring(2)} ${table==="todo"?", " + database.id:""})
+		INSERT INTO ${table} (${Object.keys(object).map(key=>`, ${key}`).join("").substring(2)})
+		VALUES (${Object.keys(object).map(attribute=>`, "${object[attribute]}"`).join("").substring(2)}})
 		`;
     try {
         const result = await db.runAsync(statement);
@@ -91,32 +85,14 @@ export async function insert(table, object) {
     }
 }
 
-export async function query(table, where, filter) {
+export async function query(table) {
     const array = [];
     const db = database.connection;
 
-    function equationBuilder(attribute, value, isExact) {
-        return `${isExact ? `AND` : `OR`} ${attribute} ${isExact ? `= "${value}"` : `LIKE "%${value}%"`}`;
-
-    }
-
-    if (!where) {
-        where = {};
-    }
-    if (!filter) {
-        filter = {};
-
-    }
     const statement = `
         SELECT * FROM ${table}
-        ${table === "todo" || Object.keys(where).length > 0 || Object.keys(filter).length > 0 ? `WHERE` : ""}
-        ${table === "todo" ? "board_id = " + database.id + " " + (
-        Object.keys(where).length > 0 || Object.keys(filter).length > 0 ? "AND " : ""
-    ): " "}
-        ${Object.keys(where).length > 0 ? `(${Object.keys(where).map(attribute => equationBuilder(attribute, where[attribute], true)).join(" ").substring(4)})`:``}
-        ${Object.keys(filter).length > 0 && Object.keys(where).length > 0 ? `AND`:``}
-        ${Object.keys(filter).length > 0 ? `(${Object.keys(filter).map(attribute => equationBuilder(attribute, filter[attribute], false)).join(" ").substring(3)})`:``}
     `;
+
     try {
         const response = await db.getAllAsync(statement);
         for (const row of response) {
@@ -130,14 +106,14 @@ export async function query(table, where, filter) {
     return array;
 }
 
-export async function update(table, id, object, idType) {
+export async function update(table, id, object) {
     const db = database.connection;
 
     const statement = `
 		UPDATE ${table} SET
 		${Object.keys(object).map(attribute => `, ${attribute} = "${object[attribute]}"`).join(" ").substring(2)}
 		WHERE
-		${idType ? idType : "id"} = ${id}
+		id = ${id}
 	`;
     try {
         await db.execAsync(statement);
@@ -148,16 +124,12 @@ export async function update(table, id, object, idType) {
     }
 }
 
-export async function remove(table, where) {
-    if (!where) {
-        return;
-    }
-
+export async function remove(table, id) {
     const db = database.connection;
     const statement = `
 		DELETE FROM ${table}
 		WHERE
-		${Object.keys(where).map(attribute => `AND ${attribute} = "${where[attribute]}"`).join(" ").substring(4)}
+		id = ${id}
 		`;
     try {
         await db.execAsync(statement);
@@ -169,24 +141,6 @@ export async function remove(table, where) {
 }
 
 export async function insertStartData() {
-    await AsyncStorage.setItem(lastBoardIdKey, "1");
-    database.id = 1;
-    await insert("board", {name: "First Board"});
-
-    await insert("state", {name: "TODO"});
-    await insert("state", {name: "IN PROGRESS"});
-    await insert("state", {name: "DONE"});
-
-    await insert("category", {name: "None", color: "#000000", weight: 1});
-    await insert("category", {name: "Blue", color: "#0000ff", weight: 2});
-    await insert("category", {name: "Red", color: "#ff0000", weight: 3});
-
-    await insert("todo", {
-        title: "Click Me",
-        description: "This is my Description!",
-        is_prioritised: true,
-        state_id: 1,
-        category_id: 1
-    });
-
+    await insert("fach", {name: "Erstes Fach"});
+    await insert("note", {titel: "Test 1", wert: 6, gewichtung: 1, fach_id: 1});
 }

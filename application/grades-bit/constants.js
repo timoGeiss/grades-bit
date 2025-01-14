@@ -12,4 +12,4 @@ export const colors = {
 export const reload = {};
 export const searchStringAtom = atom("");
 // export const lastBoardIdKey = "reactive-kanban-id:";
-export const database = {connection: {}, id: null};
+export const database = {connection: {}};
