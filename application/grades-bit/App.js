@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import {useEffect} from "react";
-import {checkIfTablesExist, createConnection, createTables, insertStartData} from "./database";
+import {useEffect, useState} from "react";
+import {checkIfTablesExist, createConnection, createTables, insertStartData, query} from "./database";
 import {router} from "expo-router";
 
 export default function App() {
+  const [subjects, setSubjects] = useState([])
+
   useEffect(() => {
     const setup = async () => {
       await createConnection();
@@ -12,15 +14,25 @@ export default function App() {
         await createTables();
         await insertStartData();
       }
-      await router.push("/home");
+      // await router.push("/home");
     };
     setup();
+
+    const testQuery = async () => {
+      const response = await query("fach");
+      setSubjects(response)
+    }
+    testQuery()
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
+      <ul>
+        {subjects.map((subject, index) => (
+            <li key={index}>{subject.name}</li>
+        ))}
+      </ul>
     </View>
   );
 }
