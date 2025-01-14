@@ -89,7 +89,7 @@ export async function insertIntoFach(name) {
     const db = await main();
     let result;
     const insertProjectStatement = await db.prepareAsync(
-        'INSERT INTO projects (name) VALUES ($name)'
+        'INSERT INTO fach (name) VALUES ($name)'
     );
     try {
         result = await insertProjectStatement.executeAsync({
@@ -105,7 +105,7 @@ export async function insertIntoNote(fach_id, titel, wert, gewichtung) {
     const db = await main();
     let result;
     const insertTaskStatement = await db.prepareAsync(
-        'INSERT INTO tasks (fach_id, titel, wert, gewichtung) VALUES ($fach_id, $titel, $wert, $gewichtung)'
+        'INSERT INTO note (fach_id, titel, wert, gewichtung) VALUES ($fach_id, $titel, $wert, $gewichtung)'
     );
     try {
         result = await insertTaskStatement.executeAsync({
