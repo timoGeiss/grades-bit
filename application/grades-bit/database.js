@@ -1,12 +1,10 @@
 import * as SQLite from "expo-sqlite";
 import {database} from "./constants";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export async function createConnection() {
     if (!(database && database.connection && database.connection.databaseName)) {
-        // database.id = JSON.parse(await AsyncStorage.getItem(lastBoardIdKey));
         try {
-            database.connection = await SQLite.openDatabaseAsync("los PINGPONG");
+            database.connection = await SQLite.openDatabaseAsync("gradeDB");
         } catch (e) {
             alert(e);
             console.error(e);
