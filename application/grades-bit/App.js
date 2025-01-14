@@ -2,37 +2,36 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {useEffect, useState} from "react";
 import {checkIfTablesExist, createConnection, createTables, insertStartData, query} from "./database";
-import {router} from "expo-router";
+// import {router} from "expo-router";
 
 export default function App() {
   const [subjects, setSubjects] = useState([])
 
   useEffect(() => {
     const setup = async () => {
-      await createConnection();
-      if (!await checkIfTablesExist()) {
-        await createTables();
-        await insertStartData();
-      }
-      // await router.push("/home");
+      await main( async () => {
+        await insertIntoFach("Mathematik")
+        console.log("math inserted")
+      })
     };
     setup();
 
     const testQuery = async () => {
-      const response = await query("fach");
-      setSubjects(response)
+      const response = await getAllFaecher(() => {
+        console.log("Aff")
+        setSubjects(response)
+      }) 
     }
     testQuery()
   }, []);
 
   return (
     <View style={styles.container}>
+      <Text>Affegring</Text>
       <StatusBar style="auto" />
-      <ul>
-        {subjects.map((subject, index) => (
-            <li key={index}>{subject.name}</li>
+        {subjects.map((subject) => (
+            <Text>{subject.name}</Text>
         ))}
-      </ul>
     </View>
   );
 }

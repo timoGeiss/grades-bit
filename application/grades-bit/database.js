@@ -1,22 +1,14 @@
-import * as SQLite from "expo-sqlite";
-import {database} from "./constants";
+import * as SQLite from 'expo-sqlite';
 
-export async function createConnection() {
-    if (!(database && database.connection && database.connection.databaseName)) {
-        try {
-            database.connection = await SQLite.openDatabaseAsync("gradeDB");
-        } catch (e) {
-            alert(e);
-            console.error(e);
-        }
-        console.info("DB: " + JSON.stringify(database.connection));
-    }
-}
+export async function main() {
+    //Creates local SQLite database named dbFreelanceTracker
+    const db = await SQLite.openDatabaseAsync('gradedb');
 
-export async function createTables() {
-    const db = database.connection;
-    const statement = `
-			CREATE TABLE IF NOT EXISTS "note" (
+    //Creates all tables and relations needed for our Project.
+    await db.execAsync(`	
+    PRAGMA foreign_keys = ON;
+    
+    		CREATE TABLE IF NOT EXISTS "note" (
 				"id" INTEGER NOT NULL UNIQUE,
 				"titel" TEXT NOT NULL,
                 "wert" DOUBLE NOT NULL,
@@ -31,114 +23,119 @@ export async function createTables() {
 				"name" TEXT NOT NULL,
 				PRIMARY KEY("id" AUTOINCREMENT)
 			);
-    `;
-    try {
-        await db.execAsync(statement);
-    } catch (e) {
-        alert("Error while creating database tables");
-        console.error("Error in SQL-Create: ");
-        console.warn("with Statement: ", statement);
-    }
-
+	`);
+    return db;
 }
 
-export async function checkIfTablesExist() {
-    const db = database.connection;
-    const expected_tables = ["note", "fach"];
-    const actual_tables = [];
-    let result = true;
-    const statement = `
-			SELECT * FROM SQLITE_SCHEMA;
-	`;
+export async function getAllFaecher() {
+    const db = await main();
+    let result;
+    const selectProjectsStatement = await db.prepareAsync('SELECT * FROM fach');
     try {
-        const tables = await db.getAllAsync(statement);
-        tables.forEach(({name}) => {
-            actual_tables.push(name);
-        });
+        result = await db.getAllAsync("SELECT * FROM fach");
     } catch (e) {
-        console.error("Error while checking Database: ", e);
-        console.warn("Statement: " + statement);
+        console.log(e);
+    } finally {
+        await selectProjectsStatement.finalizeAsync();
     }
-    expected_tables.forEach(table => {
-        if (!actual_tables.includes(table)) {
-            result = false;
-        }
-    });
     return result;
 }
 
-export async function insert(table, object) {
-    const db = database.connection;
-    const statement = `
-		INSERT INTO ${table} (${Object.keys(object).map(key=>`, ${key}`).join("").substring(2)})
-		VALUES (${Object.keys(object).map(attribute=>`, "${object[attribute]}"`).join("").substring(2)}})
-		`;
+export async function getFachById(id) {
+    const db = await main();
+    let result;
+    const selectProjectsStatement = await db.prepareAsync(`SELECT * FROM fach WHERE id = ${id}`);
     try {
-        const result = await db.runAsync(statement);
-        return result.lastInsertRowId;
+        result = await db.getAllAsync(`SELECT * FROM fach WHERE id = ${id}`);
     } catch (e) {
-        alert("Error while inserting into database");
-        console.error("Error in SQL-Insert: ");
-        console.warn("with Statement: ", statement);
+        console.log(e);
+    } finally {
+        await selectProjectsStatement.finalizeAsync();
     }
+    return result;
 }
 
-export async function query(table) {
-    const array = [];
-    const db = database.connection;
-
-    const statement = `
-        SELECT * FROM ${table}
-    `;
+export async function getGradesByFachId(id) {
+    const db = await main();
+    let result;
+    const selectTasksByProjectStatement = await db.prepareAsync(`SELECT * FROM note WHERE fach_id = ${id}`);
 
     try {
-        const response = await db.getAllAsync(statement);
-        for (const row of response) {
-            array.push(row);
-        }
+        result = await db.getAllAsync(`SELECT * FROM note WHERE fach_id = ${id}`);
     } catch (e) {
-        alert("Error while querying database");
-        console.error("Error in SQL-Query: ");
-        console.warn("with Statement: ", statement);
+        console.log(e);
+    } finally {
+        await selectTasksByProjectStatement.finalizeAsync();
     }
-    return array;
+    return result;
 }
 
-export async function update(table, id, object) {
-    const db = database.connection;
+export async function getTaskById(id) {
+    const db = await main();
+    let result;
+    const selectProjectsStatement = await db.prepareAsync(`SELECT * FROM note WHERE id = ${id}`);
 
-    const statement = `
-		UPDATE ${table} SET
-		${Object.keys(object).map(attribute => `, ${attribute} = "${object[attribute]}"`).join(" ").substring(2)}
-		WHERE
-		id = ${id}
-	`;
     try {
-        await db.execAsync(statement);
+        result = await db.getAllAsync(`SELECT * FROM note WHERE id = ${id}`);
     } catch (e) {
-        alert("Error while updating database");
-        console.error("Error in SQL-Update: ");
-        console.warn("with Statement: ", statement);
+        console.log(e);
+    } finally {
+        await selectProjectsStatement.finalizeAsync();
     }
+    return result;
 }
 
+export async function insertIntoFach(name) {
+    const db = await main();
+    let result;
+    const insertProjectStatement = await db.prepareAsync(
+        'INSERT INTO projects (name) VALUES ($name)'
+    );
+    try {
+        result = await insertProjectStatement.executeAsync({
+            $name: name
+        });
+    } finally {
+        await insertProjectStatement.finalizeAsync();
+    }
+    return result;
+}
+
+export async function insertIntoNote(fach_id, titel, wert, gewichtung) {
+    const db = await main();
+    let result;
+    const insertTaskStatement = await db.prepareAsync(
+        'INSERT INTO tasks (fach_id, titel, wert, gewichtung) VALUES ($fach_id, $titel, $wert, $gewichtung)'
+    );
+    try {
+        result = await insertTaskStatement.executeAsync({
+            $fach_id: fach_id,
+            $titel: titel,
+            $wert: wert,
+            $gewichtung: gewichtung
+        });
+    } finally {
+        await insertTaskStatement.finalizeAsync();
+    }
+    return result;
+}
+
+// !!!IMPORTANT!!! WHEN CALLING THIS FUNCTION ONLY USE `` STRINGS AND NOT ' ' or " " !!!
 export async function remove(table, id) {
-    const db = database.connection;
-    const statement = `
-		DELETE FROM ${table}
-		WHERE
-		id = ${id}
-		`;
+    const db = await main();
+    let result;
+    const deleteStatement = await db.prepareAsync(
+        `DELETE FROM ${table} WHERE id = ${id}`
+    );
     try {
-        await db.execAsync(statement);
+        result = await deleteStatement.executeAsync({
+            $id: id,
+            $table: table,
+        })
     } catch (e) {
-        alert("Error while deleting from database");
-        console.error("Error in SQL-Delete: ");
-        console.warn("with Statement: ", statement);
+        console.log(e);
+    } finally {
+        await deleteStatement.finalizeAsync();
     }
-}
-
-export async function insertStartData() {
-    await insert("fach", {name: "Erstes Fach"});
-    await insert("note", {titel: "Test 1", wert: 6, gewichtung: 1, fach_id: 1});
+    return result;
 }
