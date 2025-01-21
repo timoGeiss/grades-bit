@@ -15,6 +15,6 @@ export default function _layout() {
                     backgroundColor: "orange",
 
                 }, headerTintColor: "black"
-            }}/>
+            }}/>1
         </Stack>)
 }

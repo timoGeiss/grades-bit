@@ -1,13 +1,12 @@
-import {Text, TouchableOpacity, View} from "react-native";
-import { useNavigation } from 'expo-router';
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import { router } from 'expo-router';
 import {useState} from "react";
 
 export default function FachListItem({fach}) {
-    const navigation = useNavigation();
     const [item, setItem] = useState(fach);
 
     function navigiereZuDetailAnsicht() {
-        navigation.navigate(`fach/${fach.id}`)
+        router.push(`fach/${fach.id}`)
     }
 
     console.log(fach)
@@ -15,14 +14,15 @@ export default function FachListItem({fach}) {
     return (
         <View>
             <TouchableOpacity onPress={navigiereZuDetailAnsicht}>
-                <Text>{item.name}</Text>
+                <Text style={styles.text}>{item.name}</Text>
             </TouchableOpacity>
         </View>
     )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     text: {
-        padding: 16
+        padding: 16,
+        fontSize: 18,
     }
 })

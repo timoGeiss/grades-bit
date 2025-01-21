@@ -2,7 +2,7 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, View, React} from 'react-native';
 import {useEffect, useState} from "react";
 import {main, insertIntoFach, getAllFaecher} from "../database"
-import FachList from "../components/FachList";
+import FachList from "../components/List/FachList";
 
 export default function index() {
     const [faecher, setFaecher] = useState([])
