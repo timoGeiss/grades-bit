@@ -52,10 +52,10 @@ export async function getFachById(id) {
     } finally {
         await selectProjectsStatement.finalizeAsync();
     }
-    return result;
+    return result[0];
 }
 
-export async function getGradesByFachId(id) {
+export async function getNotenByFachId(id) {
     const db = await main();
     let result;
     const selectTasksByProjectStatement = await db.prepareAsync(`SELECT * FROM note WHERE fach_id = ${id}`);

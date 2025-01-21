@@ -1,7 +1,7 @@
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, View, React} from 'react-native';
 import {useEffect, useState} from "react";
-import {main, insertIntoFach, getAllFaecher} from "../database"
+import {main, insertIntoFach, getAllFaecher, insertIntoNote} from "../database"
 import FachList from "../components/List/FachList";
 
 export default function index() {
@@ -9,8 +9,12 @@ export default function index() {
 
     useEffect(() => {
         async function getFaecher() {
-            await insertIntoFach("Fach" + Date.now());
+            const fachName = "Fach" + Date.now();
+            await insertIntoFach(fachName);
+            await insertIntoNote(1, "", 6, 1);
+
             const daten = await getAllFaecher()
+
             setFaecher(daten)
         }
         getFaecher()

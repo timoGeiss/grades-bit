@@ -1,23 +1,24 @@
 import {FlatList, Text, View} from "react-native";
 import TrennLinie from "../TrennLinie";
 import FachListItem from "./FachListItem";
+import NotenListItem from "./NotenListItem";
 
-export default function FachList({faecher}) {
+export default function NotenList({noten}) {
     function renderItem({item}) {
-        return <FachListItem fach={item}/>
+        return <NotenListItem note={item}/>
     }
 
     return (
         <View>
-            {faecher.length > 0 ?
+            {noten.length > 0 ?
                 <FlatList
-                    data={faecher}
+                    data={noten}
                     renderItem={renderItem}
-                    keyExtractor={(fach, index) => index.toString()}
+                    keyExtractor={(note, index) => index.toString()}
                     ItemSeparatorComponent={TrennLinie}
                 />
                 :
-                <Text>Keine Fächer vorhanden!</Text>}
+                <Text>Keine Noten vorhanden!</Text>}
         </View>
     );
 }
