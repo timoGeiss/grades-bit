@@ -20,3 +20,9 @@ export default function FachListItem({fach}) {
         </View>
     )
 }
+
+const style = StyleSheet.create({
+    text: {
+        padding: 16
+    }
+})
