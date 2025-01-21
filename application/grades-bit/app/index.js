@@ -1,38 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, React, TouchableOpacity } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+import {StyleSheet, View, React} from 'react-native';
 import {useEffect, useState} from "react";
 import {main, insertIntoFach, getAllFaecher} from "../database"
-import { Button } from 'react-native-web';
-import { useNavigation } from 'expo-router';
-// import {router} from "expo-router";
+import FachList from "../components/FachList";
 
 export default function index() {
-  const [subjects, setSubjects] = useState([])
-  const navigation = useNavigation();
+    const [faecher, setFaecher] = useState([])
 
-  useEffect(() => {
-    getAllFaecher().then(resp => {
-      setSubjects(resp)
-    })
-  }, []);
+    useEffect(() => {
+        async function getFaecher() {
+            const daten = await getAllFaecher()
+            setFaecher(daten)
+        }
+        getFaecher()
+    }, []);
 
-  const toCreate = (() => {
-    navigation.navigate("create")
-  })
-
-
-  return (
-    <>
-      <TouchableOpacity onPress={toCreate}><Text>Aff</Text></TouchableOpacity>
-    </>
-  );
+    return (
+        <View>
+            <FachList faecher={faecher}/>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
