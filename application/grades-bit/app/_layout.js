@@ -16,5 +16,9 @@ export default function _layout() {
 
                 }, headerTintColor: "black"
             }}/>1
+
+            <Stack.Screen name={"fach/[id]"} options={{
+                headerShown: false,
+            }}/>
         </Stack>)
 }
