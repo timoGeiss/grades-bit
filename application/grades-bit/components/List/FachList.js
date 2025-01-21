@@ -1,4 +1,4 @@
-import {FlatList, Text, View} from "react-native";
+import {FlatList, StyleSheet, Text, View} from "react-native";
 import TrennLinie from "../TrennLinie";
 import FachListItem from "./FachListItem";
 
@@ -8,7 +8,7 @@ export default function FachList({faecher}) {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
             {faecher.length > 0 ?
                 <FlatList
                     data={faecher}
@@ -21,3 +21,9 @@ export default function FachList({faecher}) {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 16,
+    }
+})
