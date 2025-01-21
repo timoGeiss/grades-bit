@@ -9,6 +9,7 @@ export default function index() {
 
     useEffect(() => {
         async function getFaecher() {
+            await insertIntoFach("Fach" + Date.now());
             const daten = await getAllFaecher()
             setFaecher(daten)
         }

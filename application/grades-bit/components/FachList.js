@@ -3,8 +3,12 @@ import TrennLinie from "./TrennLinie";
 import FachListItem from "./FachListItem";
 
 export default function FachList({faecher}) {
-    function renderItem({fach}) {
-        return <FachListItem fach={fach}/>
+    function renderItem({item}) {
+        return <FachListItem fach={item}/>
+    }
+
+    if (faecher.length < 1) {
+        return
     }
 
     return (
