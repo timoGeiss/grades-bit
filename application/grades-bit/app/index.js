@@ -2,7 +2,7 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, View, React, TouchableOpacity, Text} from 'react-native';
 import {useCallback, useEffect, useState, } from "react";
 import {main, insertIntoFach, getAllFaecher, insertIntoNote} from "../database"
-import FachList from "../components/List/FachList";
+import FachList from "../components/Listen/FachList";
 import {router, useFocusEffect} from "expo-router";
 
 export default function index() {

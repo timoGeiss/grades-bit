@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/List/NotenList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/List/NotenListItem.js" afterDir="false" />
+    <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Create Faecher is working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/fach/[id]/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/[id]/edit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/fach/[id]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/[id]/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/List/FachList.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/List/FachList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/List/FachListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/List/FachListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/List/FachList.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/FachList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/List/FachListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/FachListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/List/NotenList.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/List/NotenListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,26 +39,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Softwareschmiede/grades-bit/application/grades-bit/components/List",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "C:\\Users\\Softwareschmiede\\grades-bit\\application\\grades-bit\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Softwareschmiede/grades-bit/application/grades-bit&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\geiss\\Repos\\grades-bit\\application\\grades-bit\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\components\List" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\components\List" />
     </key>
@@ -80,8 +79,27 @@
       <workItem from="1737094460246" duration="859000" />
       <workItem from="1737459928840" duration="397000" />
       <workItem from="1737460349026" duration="2306000" />
-      <workItem from="1737466561356" duration="3869000" />
+      <workItem from="1737466561356" duration="2215000" />
+      <workItem from="1737616452016" duration="7565000" />
+      <workItem from="1737635035276" duration="733000" />
     </task>
+    <task id="LOCAL-00001" summary="create page almost finished">
+      <option name="closed" value="true" />
+      <created>1737476022518</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737476022518</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Create Faecher is working">
+      <option name="closed" value="true" />
+      <created>1737625491397</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737625491397</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,5 +115,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create page almost finished" />
+    <MESSAGE value="Create Faecher is working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Faecher is working" />
   </component>
 </project>

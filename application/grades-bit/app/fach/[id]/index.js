@@ -2,7 +2,7 @@ import {StyleSheet, Text, View} from "react-native";
 import {useLocalSearchParams} from "expo-router";
 import {useEffect, useState} from "react";
 import {getFachById, getNotenByFachId} from "../../../database";
-import NotenList from "../../../components/List/NotenList";
+import NotenList from "../../../components/Listen/NotenList";
 
 export default function Index() {
     const {id} = useLocalSearchParams()
@@ -14,17 +14,17 @@ export default function Index() {
             return
         }
 
-        async function loadFach() {
+        async function FaecherLaden() {
             const data = await getFachById(id)
             setFach(data)
         }
-        async function loadNoten() {
+        async function NotenLaden() {
             const data = await getNotenByFachId(id)
             setNoten(data)
         }
 
-        loadFach()
-        loadNoten()
+        FaecherLaden()
+        NotenLaden()
     }, [id])
 
     return (
