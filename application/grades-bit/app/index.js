@@ -1,26 +1,22 @@
 import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, View, React, TouchableOpacity, Text} from 'react-native';
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState, } from "react";
 import {main, insertIntoFach, getAllFaecher, insertIntoNote} from "../database"
 import FachList from "../components/List/FachList";
-import {router} from "expo-router";
+import {router, useFocusEffect} from "expo-router";
 
 export default function index() {
     const [faecher, setFaecher] = useState([])
 
-    useEffect(() => {
-        async function getFaecher() {
-            // const fachName = "Fach" + Date.now();
-            // await insertIntoFach(fachName);
-            // await insertIntoNote(1, "Geometrie", 6, 1);
-            // await insertIntoNote(1, "Algebra", 6, 1);
-
-            const daten = await getAllFaecher()
-
-            setFaecher(daten)
-        }
-        getFaecher()
-    }, []);
+    useFocusEffect(
+        useCallback(() => {
+            async function getFaecher() {
+                const daten = await getAllFaecher()
+                setFaecher(daten)
+            }
+            getFaecher()
+        }, [])
+    );
 
     function zumErstellen() {
         router.push("/create")
@@ -31,7 +27,9 @@ export default function index() {
             <TouchableOpacity style={styles.button} onPress={zumErstellen}>
                 <Text style={styles.text}>Fach hinzufügen</Text>
             </TouchableOpacity>
-            <FachList faecher={faecher}/>
+            <View style={styles.margin}>
+                <FachList faecher={faecher}/>
+            </View>
         </View>
     );
 }
@@ -56,5 +54,9 @@ const styles = StyleSheet.create({
 
     text: {
         textAlign: 'center',
+    },
+
+    margin: {
+        marginBottom: 200,
     }
 });

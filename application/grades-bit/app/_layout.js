@@ -11,7 +11,7 @@ export default function _layout() {
             }}/>
 
             <Stack.Screen name={"create"} options={{
-                title: "Noten Erstellen", headerStyle: {
+                title: "Fächer erstellen", headerStyle: {
                     backgroundColor: "orange",
 
                 }, headerTintColor: "black"
