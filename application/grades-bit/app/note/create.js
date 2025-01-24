@@ -6,7 +6,7 @@ import Knopf from "../../components/Eingaben/Knopf";
 import {insertIntoFach, insertIntoNote} from "../../database";
 import {router, useLocalSearchParams, useRouter} from "expo-router";
 
-export default function NotenFormular() {
+export default function NoteErstellen() {
     const {id} = useLocalSearchParams()
 
     const [titel, titelSetzen] = useState("");

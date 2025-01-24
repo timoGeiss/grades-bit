@@ -121,6 +121,23 @@ export async function insertIntoNote(fach_id, titel, wert, gewichtung) {
     return result;
 }
 
+export async function updateFach(id, name) {
+    const db = await main();
+    let result;
+    const insertProjectStatement = await db.prepareAsync(
+        'UPDATE fach SET name = $name WHERE id = $id'
+    );
+    try {
+        result = await insertProjectStatement.executeAsync({
+            $name: name,
+            $id: id
+        });
+    } finally {
+        await insertProjectStatement.finalizeAsync();
+    }
+    return result;
+}
+
 // !!!IMPORTANT!!! WHEN CALLING THIS FUNCTION ONLY USE `` STRINGS AND NOT ' ' or " " !!!
 export async function remove(table, id) {
     const db = await main();

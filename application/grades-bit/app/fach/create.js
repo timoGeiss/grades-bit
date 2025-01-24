@@ -5,7 +5,7 @@ import {router} from "expo-router";
 import Knopf from "../../components/Eingaben/Knopf";
 import Textfeld from "../../components/Eingaben/Textfeld";
 
-export default function FachFormular() {
+export default function FachErstellen() {
     const [name, nameSetzen] = useState("")
     const [error, errorSetzen] = useState(null)
 
