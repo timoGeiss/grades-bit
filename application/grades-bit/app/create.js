@@ -1,8 +1,9 @@
 import {useState} from "react";
-import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {React, StyleSheet, Text, View} from "react-native";
 import {insertIntoFach} from "../database";
 import {router} from "expo-router";
-
+import Knopf from "../components/Eingaben/Knopf";
+import Textfeld from "../components/Eingaben/Textfeld";
 
 export default function FachFormular() {
 
@@ -23,15 +24,15 @@ export default function FachFormular() {
     return (
         <>
             <View style={styles.container}>
-                    <Text style={styles.bigText}>Welches Fach möchtest du hinzufügen?</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Name des Fachs"
-                        value={name}
-                        onChangeText={(name) => nameSetzen(name)}
-                    ></TextInput>
+                <Text style={styles.bigText}>Welches Fach möchtest du hinzufügen?</Text>
+                <Textfeld
+                    titel={"Name des Fachs"}
+                    text={name}
+                    wennTextVerändertWird={(neuerText) => nameSetzen(neuerText)}
+                />
+
                 {error ? <Text style={styles.error}>{error}</Text> : null}
-                    <TouchableOpacity onPress={formularBestätigt} on style={styles.button}><Text style={styles.centerText}>Bestätigen</Text></TouchableOpacity>
+                    <Knopf beimKlicken={formularBestätigt} text={"Bestätigen"} />
             </View>
         </>
     )

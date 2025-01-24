@@ -4,6 +4,7 @@ import {useCallback, useEffect, useState, } from "react";
 import {main, insertIntoFach, getAllFaecher, insertIntoNote} from "../database"
 import FachList from "../components/Listen/FachList";
 import {router, useFocusEffect} from "expo-router";
+import Knopf from "../components/Eingaben/Knopf";
 
 export default function index() {
     const [faecher, setFaecher] = useState([])
@@ -23,10 +24,8 @@ export default function index() {
     }
 
     return (
-        <View>
-            <TouchableOpacity style={styles.button} onPress={zumErstellen}>
-                <Text style={styles.text}>Fach hinzufügen</Text>
-            </TouchableOpacity>
+        <View style={styles.container}>
+            <Knopf beimKlicken={zumErstellen} text={"Fach hinzufügen"}/>
             <View style={styles.margin}>
                 <FachList faecher={faecher}/>
             </View>
@@ -36,10 +35,8 @@ export default function index() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        padding: 8
     },
 
     button: {
