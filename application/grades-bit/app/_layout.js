@@ -3,22 +3,31 @@ import Ionicons from "@expo/vector-icons/Ionicons"
 
 export default function _layout() {
     return (<Stack>
-            <Stack.Screen name={"index"} options={{
-                title: "Home", headerStyle: {
-                    backgroundColor: "orange",
+        <Stack.Screen name={"index"} options={{
+            title: "Home", headerStyle: {
+                backgroundColor: "orange",
 
-                }, headerTintColor: "black"
-            }}/>
+            }, headerTintColor: "black"
+        }}/>
 
-            <Stack.Screen name={"create"} options={{
-                title: "Fächer erstellen", headerStyle: {
-                    backgroundColor: "orange",
+        <Stack.Screen name={"fach/create"} options={{
+            title: "Fach erstellen", headerStyle: {
+                backgroundColor: "orange",
 
-                }, headerTintColor: "black"
-            }}/>1
+            }, headerTintColor: "black"
+        }}/>
 
-            <Stack.Screen name={"fach/[id]"} options={{
-                headerShown: false,
-            }}/>
-        </Stack>)
+        <Stack.Screen name={"note/create"} options={{
+            title: "Note erstellen", headerStyle: {
+                backgroundColor: "orange",
+
+            }, headerTintColor: "black"
+        }}/>
+
+
+        <Stack.Screen name={"fach/[id]"} options={{
+            title: "Fach Ansicht",
+            headerShown: false,
+        }}/>
+    </Stack>)
 }

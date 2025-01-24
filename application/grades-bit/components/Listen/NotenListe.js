@@ -1,11 +1,11 @@
 import {FlatList, Text, View} from "react-native";
 import TrennLinie from "../TrennLinie";
 import FachListItem from "./FachListItem";
-import NotenListItem from "./NotenListItem";
+import NotenListeItem from "./NotenListeItem";
 
-export default function NotenList({noten}) {
+export default function NotenListe({noten}) {
     function renderItem({item}) {
-        return <NotenListItem note={item}/>
+        return <NotenListeItem note={item}/>
     }
 
     return (

@@ -1,10 +1,11 @@
 import {React, StyleSheet, TextInput} from "react-native";
 
-export default function Textfeld({titel, inhalt, wennInhaltVerändertWird}) {
+export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird}) {
 
     return (
         <TextInput
             style={styles.input}
+            keyboardType={"number-pad"}
             placeholder={titel}
             value={inhalt}
             onChangeText={(value) => wennInhaltVerändertWird(value)}

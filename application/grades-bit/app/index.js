@@ -20,7 +20,7 @@ export default function index() {
     );
 
     function zumErstellen() {
-        router.push("/create")
+        router.push("/fach/create")
     }
 
     return (
@@ -36,17 +36,8 @@ export default function index() {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
-        padding: 8
-    },
-
-    button: {
-        backgroundColor: 'orange',
-        color: 'black',
-        margin: 8,
-        marginTop: 24,
-        textAlign: 'center',
-        padding: 16,
-        borderRadius: 6,
+        padding: 8,
+        height: "100%"
     },
 
     text: {

@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Create Faecher is working">
-      <change afterPath="$PROJECT_DIR$/components/Eingaben/Knopf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Eingaben/Textfeld.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/note/create.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Eingaben/Zahlenfeld.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/fach/[id]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/[id]/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Eingaben/Textfeld.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Eingaben/Textfeld.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/NotenList.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenListe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/NotenListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenListeItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +58,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\app\fach\[id]" />
+      <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\app\fach" />
       <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\components\List" />
     </key>
   </component>

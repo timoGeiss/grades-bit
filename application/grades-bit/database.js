@@ -3,7 +3,7 @@ import * as SQLite from 'expo-sqlite';
 
 export async function main() {
     //Creates local SQLite database named dbFreelanceTracker
-    const db = await SQLite.openDatabaseAsync('gradedb');
+    const db = await SQLite.openDatabaseAsync('gradedb1');
 
     //Creates all tables and relations needed for our Project.
     await db.execAsync(`	
