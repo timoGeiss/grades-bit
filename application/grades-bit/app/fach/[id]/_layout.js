@@ -7,7 +7,8 @@ export default function _layout() {
             title: "Details", headerStyle: {
                 backgroundColor: "orange",
 
-            }, headerTintColor: "black"
+            }, headerTintColor: "black",
+            headerBackVisible: true
         }}/>
 
         <Stack.Screen name={"edit"} options={{
