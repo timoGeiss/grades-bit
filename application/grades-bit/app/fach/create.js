@@ -10,13 +10,15 @@ export default function FachErstellen() {
     const [error, errorSetzen] = useState(null)
 
     async function formularBestätigt() {
-        if (name.length >= 5) {
-            await insertIntoFach(name).then((res) => {
-                console.log(res)
-                router.back()
-            })
-        } else {
+        if (name.length < 2) {
             errorSetzen("Name ist zu kurz")
+        }
+        else if (name.length > 14) {
+            errorSetzen("Name ist zu lang")
+        }
+        else {
+            await insertIntoFach(name)
+            router.back()
         }
     }
 

@@ -19,6 +19,9 @@ export default function NoteErstellen() {
             errorSetzen("Titel ist zu kurz")
             return
         }
+        if (titel.length > 14) {
+            errorSetzen("Titel ist zu lang")
+        }
         if (note < 1) {
             errorSetzen("Note zu klein, min: 1")
             return

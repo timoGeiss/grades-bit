@@ -23,11 +23,15 @@ export default function Edit() {
     }, [id]);
 
     async function formularBestätigt() {
-        if (fach.name.length >= 5) {
+        if (fach.name.length < 2) {
+            errorSetzen("Name ist zu kurz")
+        }
+        else if (fach.name.length > 14) {
+            errorSetzen("Name ist zu lang")
+        }
+        else {
             await updateFach(id, fach.name)
             router.back()
-        } else {
-            errorSetzen("Name ist zu kurz")
         }
     }
 
