@@ -50,6 +50,7 @@ export default function NoteErstellen() {
                 titel={"Note"}
                 inhalt={note}
                 wennInhaltVerändertWird={(neuerInhalt) => noteSetzen(neuerInhalt)}
+                mitKomma={true}
             />
             <Zahlenfeld
                 titel={"Gewichtung"}

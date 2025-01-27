@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     },
 
     margin: {
+        marginTop: 8,
         marginBottom: 200,
     }
 });

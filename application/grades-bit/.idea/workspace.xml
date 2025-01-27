@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Eingaben/FrageFenster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/fach/[id]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/[id]/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Listen/NotenListe.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenListe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/note/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/note/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Eingaben/Zahlenfeld.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Eingaben/Zahlenfeld.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/FachListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/FachListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/NotenListeItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenListeItem.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +80,7 @@
       <workItem from="1737466561356" duration="2215000" />
       <workItem from="1737616452016" duration="7565000" />
       <workItem from="1737635035276" duration="733000" />
-      <workItem from="1737979656296" duration="4444000" />
+      <workItem from="1737979656296" duration="6953000" />
     </task>
     <task id="LOCAL-00001" summary="create page almost finished">
       <option name="closed" value="true" />
