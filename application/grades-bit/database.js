@@ -139,16 +139,33 @@ export async function updateFach(id, name) {
 }
 
 // !!!IMPORTANT!!! WHEN CALLING THIS FUNCTION ONLY USE `` STRINGS AND NOT ' ' or " " !!!
-export async function remove(table, id) {
+export async function removeFach(id) {
     const db = await main();
     let result;
     const deleteStatement = await db.prepareAsync(
-        `DELETE FROM ${table} WHERE id = ${id}`
+        `DELETE FROM fach WHERE id = ${id}`
     );
     try {
         result = await deleteStatement.executeAsync({
             $id: id,
-            $table: table,
+        })
+    } catch (e) {
+        console.log(e);
+    } finally {
+        await deleteStatement.finalizeAsync();
+    }
+    return result;
+}
+
+export async function removeNote(id) {
+    const db = await main();
+    let result;
+    const deleteStatement = await db.prepareAsync(
+        `DELETE FROM note WHERE id = ${id}`
+    );
+    try {
+        result = await deleteStatement.executeAsync({
+            $id: id,
         })
     } catch (e) {
         console.log(e);

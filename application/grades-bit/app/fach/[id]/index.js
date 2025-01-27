@@ -1,15 +1,17 @@
 import {React, StyleSheet, Text, View} from "react-native";
 import {router, useFocusEffect, useLocalSearchParams} from "expo-router";
 import {useCallback, useEffect, useState} from "react";
-import {getAllFaecher, getFachById, getNotenByFachId} from "../../../database";
+import {getAllFaecher, getFachById, getNotenByFachId, insertIntoFach, removeFach, removeNote} from "../../../database";
 import NotenListe from "../../../components/Listen/NotenListe";
 import Knopf from "../../../components/Eingaben/Knopf";
 import IconKnopf from "../../../components/Eingaben/IconKnopf";
+import FrageFenster from "../../../components/Eingaben/FrageFenster";
 
 export default function Index() {
     const {id} = useLocalSearchParams()
     const [fach, setFach] = useState({})
     const [noten, setNoten] = useState([])
+    const [istSichtbar, sichtbarkeitSetzen] = useState(false)
 
     useFocusEffect(
         useCallback(() => {
@@ -21,10 +23,10 @@ export default function Index() {
                 const data = await getFachById(id)
                 setFach(data)
             }
+
             async function NotenLaden() {
                 const data = await getNotenByFachId(id)
                 setNoten(data)
-                console.log(data)
             }
 
             FaecherLaden()
@@ -40,12 +42,37 @@ export default function Index() {
         router.push(`/fach/${id}/edit`)
     }
 
+    function frageLöschen() {
+        sichtbarkeitSetzen(true)
+    }
+
+    async function fachLöschen() {
+        const noten = await getNotenByFachId(id)
+        for (const note of noten) {
+            await removeNote(note.id)
+        }
+        await removeFach(id)
+        router.push("/")
+    }
+
     return (
         <View style={styles.container}>
+            <FrageFenster
+                text={"Willst du das Fach wirklich löschen? Dies löscht auch alle dazugehörigen Noten!!!"}
+                titel={"Löschung Bestätigen"}
+                istSichtbar={istSichtbar}
+                sichtbarkeitSetzen={sichtbarkeitSetzen}
+                wennAbbrechenAngeklickt={() => {}}
+                wennBesätigigenAngeklickt={fachLöschen}/>
+
+            <View style={styles.titleBar}>
                 <Text style={styles.titel}>{fach.name}</Text>
-                <View style={styles.stift}>
+                <View style={styles.icons}>
                     <IconKnopf beimKlicken={zumBearbeiten} icon={"pencil"}/>
+                    <IconKnopf beimKlicken={frageLöschen} icon={"trash"}/>
                 </View>
+            </View>
+
             <Knopf beimKlicken={zumErstellen} text={"Note hinzufügen"}/>
             <View style={styles.margin}>
                 <NotenListe noten={noten}/>
@@ -60,16 +87,17 @@ const styles = StyleSheet.create({
         padding: 8,
         height: "100%"
     },
-    stift: {
-        position: "absolute",
-        zIndex: 1,
-        top: 25,
-        left: 350
+    icons: {
+        display: "flex",
+        flexDirection: "row",
+        gap: 16
     },
-
+    titleBar: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
     titel: {
         fontSize: 24,
-        textAlign: "center",
         paddingVertical: 16,
     },
 

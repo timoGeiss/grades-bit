@@ -1,4 +1,4 @@
-import {FlatList, Text, View} from "react-native";
+import {FlatList, StyleSheet, Text, View} from "react-native";
 import TrennLinie from "../TrennLinie";
 import FachListItem from "./FachListItem";
 import NotenListeItem from "./NotenListeItem";
@@ -18,7 +18,13 @@ export default function NotenListe({noten}) {
                     ItemSeparatorComponent={TrennLinie}
                 />
                 :
-                <Text>Keine Noten vorhanden!</Text>}
+                <Text style={styles.keineGefunden}>Keine Noten vorhanden!</Text>}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    keineGefunden: {
+        marginTop: 16,
+    }
+})
