@@ -26,7 +26,7 @@ export default function Edit() {
         if (fach.name.length < 2) {
             errorSetzen("Name ist zu kurz")
         }
-        else if (fach.name.length > 14) {
+        else if (fach.name.length > 20) {
             errorSetzen("Name ist zu lang")
         }
         else {

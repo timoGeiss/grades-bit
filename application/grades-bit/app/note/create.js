@@ -19,7 +19,7 @@ export default function NoteErstellen() {
             errorSetzen("Titel ist zu kurz")
             return
         }
-        if (titel.length > 14) {
+        if (titel.length > 20) {
             errorSetzen("Titel ist zu lang")
         }
         if (note < 1) {

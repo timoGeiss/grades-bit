@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
         padding: 8,
-        height: "100%"
+        height: "100%",
     },
     icons: {
         display: "flex",
@@ -95,10 +95,16 @@ const styles = StyleSheet.create({
     titleBar: {
         flexDirection: "row",
         justifyContent: "space-between",
+        alignItems: "center",
+        width: "100%",
+        maxWidth: "100%"
     },
     titel: {
         fontSize: 24,
         paddingVertical: 16,
+        flex: 1,
+        marginRight: 16,
+        overflow: "hidden"
     },
 
     margin: {
