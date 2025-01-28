@@ -35,10 +35,8 @@ export default function NoteErstellen() {
             return
         }
 
-        await insertIntoNote(id, titel, note, gewichtung).then((res) => {
-            console.log(res)
-            router.back()
-        })
+        await insertIntoNote(id, titel, note, gewichtung)
+        router.back()
     }
 
     return (

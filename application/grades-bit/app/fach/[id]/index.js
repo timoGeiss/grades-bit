@@ -52,7 +52,7 @@ export default function Index() {
             await removeNote(note.id)
         }
         await removeFach(id)
-        router.push("/")
+        router.back()
     }
 
     return (

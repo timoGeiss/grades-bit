@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="">
+    <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Create Faecher is working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/fach/[id]/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/[id]/edit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/fach/[id]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/[id]/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/fach/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/create.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/note/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/note/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Eingaben/FrageFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Eingaben/FrageFenster.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +59,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
       </set>
     </attachedChunks>
   </component>
@@ -79,7 +78,8 @@
       <workItem from="1737466561356" duration="2215000" />
       <workItem from="1737616452016" duration="7565000" />
       <workItem from="1737635035276" duration="733000" />
-      <workItem from="1737979656296" duration="9570000" />
+      <workItem from="1737979656296" duration="9604000" />
+      <workItem from="1738045695309" duration="1352000" />
     </task>
     <task id="LOCAL-00001" summary="create page almost finished">
       <option name="closed" value="true" />
