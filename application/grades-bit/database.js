@@ -138,6 +138,25 @@ export async function updateFach(id, name) {
     return result;
 }
 
+export async function updateNote(id, titel, wert, gewichtung) {
+    const db = await main();
+    let result;
+    const insertProjectStatement = await db.prepareAsync(
+        'UPDATE note SET titel = $titel, wert = $wert, gewichtung = $gewichtung WHERE id = $id'
+    );
+    try {
+        result = await insertProjectStatement.executeAsync({
+            $id: id,
+            $titel: titel,
+            $wert: wert,
+            $gewichtung: gewichtung
+        });
+    } finally {
+        await insertProjectStatement.finalizeAsync();
+    }
+    return result;
+}
+
 // !!!IMPORTANT!!! WHEN CALLING THIS FUNCTION ONLY USE `` STRINGS AND NOT ' ' or " " !!!
 export async function removeFach(id) {
     const db = await main();
