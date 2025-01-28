@@ -6,6 +6,8 @@ import NotenListe from "../../../components/Listen/NotenListe";
 import Knopf from "../../../components/Eingaben/Knopf";
 import IconKnopf from "../../../components/Eingaben/IconKnopf";
 import FrageFenster from "../../../components/Eingaben/FrageFenster";
+import Durchschnitt from "../../../components/Durchschnitt";
+import TrennLinie from "../../../components/TrennLinie";
 
 export default function Index() {
     const {id} = useLocalSearchParams()
@@ -76,6 +78,8 @@ export default function Index() {
             <Knopf beimKlicken={zumErstellen} text={"Note hinzufügen"}/>
             <View style={styles.margin}>
                 <NotenListe noten={noten}/>
+                {noten.length > 0 && <TrennLinie/>}
+                {noten.length > 0 && <Durchschnitt noten={noten}/>}
             </View>
         </View>
     )

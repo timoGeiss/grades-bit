@@ -28,7 +28,7 @@ export default function NotenListeItem({note}) {
     return (
         <TouchableOpacity onPress={navigiereZuDetailAnsicht} style={styles.container}>
             <Text style={styles.text}>{note.titel}</Text>
-            <Text style={{...styles.text, ...styles.wert}}>{note.wert}</Text>
+            <Text style={[styles.text, styles.wert]}>{note.wert}</Text>
             <View style={[styles.balken, {backgroundColor: erhalteFarbeNachNotenWert()}]}><Text></Text></View>
         </TouchableOpacity>
     )
