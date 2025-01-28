@@ -1,16 +1,18 @@
 import {View, StyleSheet, Text, React} from "react-native";
 import {router, useFocusEffect, useLocalSearchParams} from "expo-router";
 import {useCallback, useState} from "react";
-import {getNoteById, updateNote} from "../../../database";
+import {getNoteById, removeNote, updateNote} from "../../../database";
 import Textfeld from "../../../components/Eingaben/Textfeld";
 import Zahlenfeld from "../../../components/Eingaben/Zahlenfeld";
 import Knopf from "../../../components/Eingaben/Knopf";
+import FrageFenster from "../../../components/Eingaben/FrageFenster";
 
 export default function Index() {
     const {id} = useLocalSearchParams()
 
     const [note, noteSetzen] = useState(null);
     const [error, errorSetzen] = useState(null)
+    const [istSichtbar, sichtbarkeitSetzen] = useState(false)
 
 
     useFocusEffect(
@@ -28,6 +30,15 @@ export default function Index() {
             getNote()
         }, [id])
     );
+
+    async function frageLöschen() {
+        sichtbarkeitSetzen(true)
+    }
+
+    async function noteLöschen() {
+        await removeNote(id)
+        router.back()
+    }
 
     async function formularBestätigt() {
         if (note.titel.length < 2) {
@@ -72,6 +83,15 @@ export default function Index() {
 
     return (
         <View style={styles.container}>
+
+            <FrageFenster
+                text={"Willst du diese Note wirklich löschen?"}
+                titel={"Löschung Bestätigen"}
+                istSichtbar={istSichtbar}
+                sichtbarkeitSetzen={sichtbarkeitSetzen}
+                wennAbbrechenAngeklickt={() => {}}
+                wennBesätigigenAngeklickt={noteLöschen}/>
+
             <Text style={styles.bigText}>Was für eine Note möchtests du erstellen?</Text>
             <Textfeld
                 titel={"Titel der Prüfung"}
@@ -91,6 +111,10 @@ export default function Index() {
 
             {error ? <Text style={styles.error}>{error}</Text> : null}
             <Knopf beimKlicken={formularBestätigt} text={"Bestätigen"}/>
+            <View style={styles.löschen}>
+                <Text style={styles.bigText}>Prüfung Löschen?</Text>
+                <Knopf beimKlicken={frageLöschen} text={"Löschen"}/>
+            </View>
         </View>
     )
 }
@@ -122,4 +146,8 @@ const styles = StyleSheet.create({
     error: {
         color: "red",
     },
+
+    löschen: {
+        marginTop: 24,
+    }
 })
