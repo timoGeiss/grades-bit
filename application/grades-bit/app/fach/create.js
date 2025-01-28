@@ -4,6 +4,7 @@ import {insertIntoFach} from "../../database";
 import {router} from "expo-router";
 import Knopf from "../../components/Eingaben/Knopf";
 import Textfeld from "../../components/Eingaben/Textfeld";
+import {StatusBar} from "expo-status-bar";
 
 export default function FachErstellen() {
     const [name, nameSetzen] = useState("")
@@ -24,6 +25,7 @@ export default function FachErstellen() {
 
     return (
         <View style={styles.container}>
+            <StatusBar/>
             <Text style={styles.bigText}>Welches Fach möchtest du hinzufügen?</Text>
             <Textfeld
                 titel={"Name des Fachs"}
