@@ -25,6 +25,7 @@ export default function index() {
 
     return (
         <View style={styles.container}>
+            <StatusBar/>
             <Knopf beimKlicken={zumErstellen} text={"Fach hinzufügen"}/>
             <View style={styles.margin}>
                 <FachList faecher={faecher}/>

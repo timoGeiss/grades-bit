@@ -6,6 +6,7 @@ import Textfeld from "../../../components/Eingaben/Textfeld";
 import Zahlenfeld from "../../../components/Eingaben/Zahlenfeld";
 import Knopf from "../../../components/Eingaben/Knopf";
 import FrageFenster from "../../../components/Eingaben/FrageFenster";
+import {StatusBar} from "expo-status-bar";
 
 export default function Index() {
     const {id} = useLocalSearchParams()
@@ -83,7 +84,7 @@ export default function Index() {
 
     return (
         <View style={styles.container}>
-
+            <StatusBar/>
             <FrageFenster
                 text={"Willst du diese Note wirklich löschen?"}
                 titel={"Löschung Bestätigen"}

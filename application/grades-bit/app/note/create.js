@@ -1,10 +1,11 @@
-import {View, Text, StyleSheet} from "react-native";
+import {View, Text, StyleSheet, React} from "react-native";
 import Textfeld from "../../components/Eingaben/Textfeld";
 import {useState} from "react";
 import Zahlenfeld from "../../components/Eingaben/Zahlenfeld";
 import Knopf from "../../components/Eingaben/Knopf";
 import {insertIntoFach, insertIntoNote} from "../../database";
 import {router, useLocalSearchParams, useRouter} from "expo-router";
+import {StatusBar} from "expo-status-bar";
 
 export default function NoteErstellen() {
     const {id} = useLocalSearchParams()
@@ -53,6 +54,7 @@ export default function NoteErstellen() {
 
     return (
         <View style={styles.container}>
+            <StatusBar/>
             <Text style={styles.bigText}>Was für eine Note möchtests du erstellen?</Text>
             <Textfeld
                 titel={"Titel der Prüfung"}

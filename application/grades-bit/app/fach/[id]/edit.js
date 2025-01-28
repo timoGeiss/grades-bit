@@ -4,6 +4,7 @@ import Knopf from "../../../components/Eingaben/Knopf";
 import {useEffect, useState} from "react";
 import {getFachById, insertIntoFach, updateFach} from "../../../database";
 import {router, useLocalSearchParams} from "expo-router";
+import {StatusBar} from "expo-status-bar";
 
 export default function Edit() {
     const {id} = useLocalSearchParams()
@@ -41,6 +42,7 @@ export default function Edit() {
 
     return (
         <View style={styles.container}>
+            <StatusBar/>
             <Text style={styles.bigText}>Hier kannst du das Fach bearbeiten.</Text>
             <Textfeld
                 titel={"Name des Fachs"}

@@ -8,6 +8,7 @@ import IconKnopf from "../../../components/Eingaben/IconKnopf";
 import FrageFenster from "../../../components/Eingaben/FrageFenster";
 import Durchschnitt from "../../../components/Durchschnitt";
 import TrennLinie from "../../../components/TrennLinie";
+import {StatusBar} from "expo-status-bar";
 
 export default function Index() {
     const {id} = useLocalSearchParams()
@@ -59,6 +60,7 @@ export default function Index() {
 
     return (
         <View style={styles.container}>
+            <StatusBar/>
             <FrageFenster
                 text={"Willst du das Fach wirklich löschen? Dies löscht auch alle dazugehörigen Noten!!!"}
                 titel={"Löschung Bestätigen"}
