@@ -35,13 +35,19 @@ export default function NoteErstellen() {
             return
         }
 
-        const wert = Number(note)
-        if (isNaN(wert)) {
+        const überprüfteNote = Number(note)
+        if (isNaN(überprüfteNote)) {
             errorSetzen("Die Note muss eine Zahl sein (Nur . erlaubt kein ,)")
             return
         }
 
-        await insertIntoNote(id, titel, wert, gewichtung);
+        const überprüfteGewichtung = Number(gewichtung)
+        if (isNaN(überprüfteGewichtung)) {
+            errorSetzen("Die Gewichtung muss eine Zahl sein (Nur . erlaubt kein ,)")
+            return
+        }
+
+        await insertIntoNote(id, titel, überprüfteNote, überprüfteGewichtung);
         router.back()
     }
 

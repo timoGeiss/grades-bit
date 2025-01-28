@@ -50,13 +50,19 @@ export default function Index() {
             return
         }
 
-        const wert = Number(note.wert)
-        if (isNaN(wert)) {
+        const überprüfteNote = Number(note.wert)
+        if (isNaN(überprüfteNote)) {
             errorSetzen("Die Note muss eine Zahl sein (Nur . erlaubt kein ,)")
             return
         }
 
-        await updateNote(id, note.titel, note.wert, note.gewichtung)
+        const überprüfteGewichtung = Number(note.gewichtung)
+        if (isNaN(überprüfteGewichtung)) {
+            errorSetzen("Die Gewichtung muss eine Zahl sein (Nur . erlaubt kein ,)")
+            return
+        }
+
+        await updateNote(id, note.titel, überprüfteNote, überprüfteGewichtung)
         router.back()
     }
 
