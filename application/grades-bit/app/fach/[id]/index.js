@@ -1,4 +1,4 @@
-import {React, StyleSheet, Text, View} from "react-native";
+import {Dimensions, React, StyleSheet, Text, View} from "react-native";
 import {router, useFocusEffect, useLocalSearchParams} from "expo-router";
 import {useCallback, useEffect, useState} from "react";
 import {getAllFaecher, getFachById, getNotenByFachId, insertIntoFach, removeFach, removeNote} from "../../../database";
@@ -78,11 +78,11 @@ export default function Index() {
             </View>
 
             <Knopf beimKlicken={zumErstellen} text={"Note hinzufügen"}/>
-            <View style={styles.margin}>
+            <View style={styles.list}>
                 <NotenListe noten={noten}/>
-                {noten.length > 0 && <TrennLinie/>}
-                {noten.length > 0 && <Durchschnitt noten={noten}/>}
             </View>
+            {noten.length > 0 && <TrennLinie/>}
+            {noten.length > 0 && <Durchschnitt noten={noten}/>}
         </View>
     )
 }
@@ -90,7 +90,7 @@ export default function Index() {
 const styles = StyleSheet.create({
     container: {
         padding: 8,
-        height: "100%",
+        height: Dimensions.get("window").height,
     },
     icons: {
         display: "flex",
@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
         overflow: "hidden"
     },
 
-    margin: {
+    list: {
         marginTop: 8,
-        marginBottom: 200,
+        height: Dimensions.get("window").height/100*60,
     }
 });
