@@ -27,7 +27,7 @@ export default function NotenListeItem({note}) {
 
     return (
         <TouchableOpacity onPress={navigiereZuDetailAnsicht} style={styles.container}>
-            <Text style={styles.text}>{note.titel}</Text>
+            <Text style={[styles.text, styles.titel]} numberOfLines={1} ellipsizeMode={"tail"}>{note.titel}</Text>
             <Text style={[styles.text, styles.wert]}>{note.wert}</Text>
             <View style={[styles.balken, {backgroundColor: erhalteFarbeNachNotenWert()}]}><Text></Text></View>
         </TouchableOpacity>
@@ -38,10 +38,15 @@ const styles = StyleSheet.create({
     container: {
         display: "flex",
         flexDirection: "row",
+        width: "100%",
+        maxWidth: "100%",
     },
     text: {
         padding: 16,
         fontSize: 16,
+    },
+    titel: {
+        width: "80%",
     },
     wert: {
         marginLeft: "auto",

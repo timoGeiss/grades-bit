@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Create Faecher is working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/fach/[id]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/[id]/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/FachListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/FachListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/NotenListeItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenListeItem.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
