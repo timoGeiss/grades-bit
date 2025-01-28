@@ -103,6 +103,8 @@ export async function insertIntoFach(name) {
 }
 
 export async function insertIntoNote(fach_id, titel, wert, gewichtung) {
+    const noteMitPunkt = wert.toString().replace(",", ".");
+    const gewichtungMitPunkt = gewichtung.toString().replace(",", ".");
     const db = await main();
     let result;
     const insertTaskStatement = await db.prepareAsync(
@@ -112,8 +114,8 @@ export async function insertIntoNote(fach_id, titel, wert, gewichtung) {
         result = await insertTaskStatement.executeAsync({
             $fach_id: fach_id,
             $titel: titel,
-            $wert: wert,
-            $gewichtung: gewichtung
+            $wert: noteMitPunkt,
+            $gewichtung: gewichtungMitPunkt,
         });
     } finally {
         await insertTaskStatement.finalizeAsync();
@@ -139,6 +141,8 @@ export async function updateFach(id, name) {
 }
 
 export async function updateNote(id, titel, wert, gewichtung) {
+    const noteMitPunkt = wert.toString().replace(",", ".");
+    const gewichtungMitPunkt = gewichtung.toString().replace(",", ".");
     const db = await main();
     let result;
     const insertProjectStatement = await db.prepareAsync(
@@ -148,8 +152,8 @@ export async function updateNote(id, titel, wert, gewichtung) {
         result = await insertProjectStatement.executeAsync({
             $id: id,
             $titel: titel,
-            $wert: wert,
-            $gewichtung: gewichtung
+            $wert: noteMitPunkt,
+            $gewichtung: gewichtungMitPunkt,
         });
     } finally {
         await insertProjectStatement.finalizeAsync();

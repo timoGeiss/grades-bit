@@ -50,6 +50,12 @@ export default function Index() {
             return
         }
 
+        const wert = Number(note.wert)
+        if (isNaN(wert)) {
+            errorSetzen("Die Note muss eine Zahl sein (Nur . erlaubt kein ,)")
+            return
+        }
+
         await updateNote(id, note.titel, note.wert, note.gewichtung)
         router.back()
     }
@@ -105,5 +111,9 @@ const styles = StyleSheet.create({
     titel: {
         fontSize: 24,
         paddingVertical: 16,
+    },
+
+    error: {
+        color: "red",
     },
 })

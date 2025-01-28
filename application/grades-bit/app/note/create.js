@@ -35,7 +35,13 @@ export default function NoteErstellen() {
             return
         }
 
-        await insertIntoNote(id, titel, note, gewichtung)
+        const wert = Number(note)
+        if (isNaN(wert)) {
+            errorSetzen("Die Note muss eine Zahl sein (Nur . erlaubt kein ,)")
+            return
+        }
+
+        await insertIntoNote(id, titel, wert, gewichtung);
         router.back()
     }
 
