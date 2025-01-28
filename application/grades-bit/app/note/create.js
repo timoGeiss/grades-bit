@@ -81,9 +81,10 @@ export default function NoteErstellen() {
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: "#fff",
         flex: 1,
-        marginTop: 64,
-        margin: 24,
+        paddingTop: 64,
+        padding: 24,
         width: "auto",
     },
 

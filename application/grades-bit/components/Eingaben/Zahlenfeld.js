@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     text: {
-        backgroundColor: "white",
+        backgroundColor: "#fff",
         alignSelf: "flex-start",
         position: "absolute",
         top: -8,

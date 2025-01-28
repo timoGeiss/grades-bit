@@ -89,7 +89,6 @@ export default function Index() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff',
         padding: 8,
         height: "100%",
     },

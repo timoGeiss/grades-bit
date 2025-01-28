@@ -1,7 +1,7 @@
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, View, React, TouchableOpacity, Text} from 'react-native';
-import {useCallback, useEffect, useState, } from "react";
-import {main, insertIntoFach, getAllFaecher, insertIntoNote} from "../database"
+import {StyleSheet, View, React} from 'react-native';
+import {useCallback, useState, } from "react";
+import {getAllFaecher} from "../database"
 import FachList from "../components/Listen/FachList";
 import {router, useFocusEffect} from "expo-router";
 import Knopf from "../components/Eingaben/Knopf";
@@ -36,7 +36,6 @@ export default function index() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff',
         padding: 8,
         height: "100%"
     },
