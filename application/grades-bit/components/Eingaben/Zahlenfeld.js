@@ -5,7 +5,7 @@ export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird, mit
     return (
         <TextInput
             style={styles.input}
-            keyboardType={mitKomma ? "numeric" : "number-pad"}
+            keyboardType={"numeric"}
             placeholder={titel}
             value={inhalt}
             onChangeText={(value) => wennInhaltVerändertWird(value)}

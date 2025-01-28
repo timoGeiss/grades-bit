@@ -71,7 +71,7 @@ export async function getNotenByFachId(id) {
     return result;
 }
 
-export async function getTaskById(id) {
+export async function getNoteById(id) {
     const db = await main();
     let result;
     const selectProjectsStatement = await db.prepareAsync(`SELECT * FROM note WHERE id = ${id}`);

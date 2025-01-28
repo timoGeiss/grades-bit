@@ -24,6 +24,13 @@ export default function _layout() {
             }, headerTintColor: "black"
         }}/>
 
+        <Stack.Screen name={"note/[id]"} options={{
+            title: "Note", headerStyle: {
+                backgroundColor: "orange",
+
+            }, headerTintColor: "black"
+        }}/>
+
 
         <Stack.Screen name={"fach/[id]"} options={{
             title: "Fach Ansicht",

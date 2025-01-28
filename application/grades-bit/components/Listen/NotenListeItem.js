@@ -4,7 +4,7 @@ import {useState} from "react";
 
 export default function NotenListeItem({note}) {
     function navigiereZuDetailAnsicht() {
-        // router.push(`note/${note.id}`)
+        router.push(`note/${note.id}`)
     }
 
     function erhalteFarbeNachNotenWert() {
