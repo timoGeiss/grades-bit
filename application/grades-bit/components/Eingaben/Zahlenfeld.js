@@ -1,4 +1,4 @@
-import {React, StyleSheet, Text, TextInput, View} from "react-native";
+import {Dimensions, React, StyleSheet, Text, TextInput, View} from "react-native";
 
 export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird}) {
 
@@ -21,6 +21,8 @@ export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird}) {
 const styles = StyleSheet.create({
     container: {
         marginTop: 16,
+        // minWidth: Dimensions.get("window").width/100*50,
+        width: '100%',
     },
     input: {
         width: '100%',
