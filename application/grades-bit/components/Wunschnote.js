@@ -46,40 +46,50 @@ export default function Wunschnote({fachId}) {
         let x = 0
         let i = 1
         while (true) {
-            x = (wunschnote*(noten.length+i)-summe)/i
+            x = (wunschnote * (noten.length + i) - summe) / i
+            console.log(x)
+            if (i > 100) {
+                benötigteNoteSrretzen("N/A")
+                anzahlBenötigteNoteSetzen("N/A")
+                alert("Die gewünschte Note kann nicht mehr erreicht werden")
+                return;
+            }
+
             if (x <= 6) {
                 break
             }
-            if (x < 1) {
 
-            }
-            if (i > 100) {
-                benötigteNoteSetzen("N/A")
-                anzahlBenötigteNoteSetzen("N/A")
-                alert("Die gewünschte Note liegt ausserhalb der Reichweite")
-                return;
-            }
             i++
         }
 
-        benötigteNoteSetzen(x.toString())
+        benötigteNoteSetzen(x.toFixed(3).toString())
         anzahlBenötigteNoteSetzen(i.toString())
     }
 
     return (
         <View style={styles.container}>
-            <View style={styles.wunschnote}>
-                <Zahlenfeld titel={"Wunschnote"} inhalt={wunschnote} wennInhaltVerändertWird={(neuerInhalt) => wunschnoteSetzen(neuerInhalt)}/>
+            <View style={styles.eingabeContainer}>
+                <View style={styles.wunschnote}>
+                    <Zahlenfeld
+                        titel={"Wunschnote"}
+                        inhalt={wunschnote}
+                        wennInhaltVerändertWird={(neuerInhalt) => wunschnoteSetzen(neuerInhalt)}
+                        platzhalter={"6"}
+                    />
+                </View>
+                <Ionicons size={32} color="orange" name={"arrow-forward-outline"} style={styles.iconPfeil}/>
             </View>
-            <Ionicons size={32} color="orange" name={"arrow-forward-outline"} style={styles.iconPfeil}/>
-            <View style={styles.benötigteNote}>
-                <AnzeigeFeld titel={"Benötigte Note"} inhalt={benötigteNote}/>
-            </View>
-            <View style={styles.anzahl}>
-                <AnzeigeFeld titel={"Anzahl"} inhalt={anzahlBenötigteNote}/>
-            </View>
-            <View style={styles.iconTaschenrechner}>
-            <IconKnopf beimKlicken={benötigteNoteBerechnen} icon={"calculator-outline"}/>
+
+            <View style={styles.resultatContainer}>
+                <View style={styles.benötigteNote}>
+                    <AnzeigeFeld titel={"Benötigte Note"} inhalt={benötigteNote}/>
+                </View>
+                <View style={styles.anzahl}>
+                    <AnzeigeFeld titel={"Anzahl"} inhalt={anzahlBenötigteNote}/>
+                </View>
+                <View style={styles.iconTaschenrechner}>
+                    <IconKnopf beimKlicken={benötigteNoteBerechnen} icon={"calculator-outline"}/>
+                </View>
             </View>
         </View>
     )
@@ -88,8 +98,6 @@ export default function Wunschnote({fachId}) {
 const styles = StyleSheet.create({
     container: {
         width: Dimensions.get("window").width - 8,
-        display: "flex",
-        flexDirection: "row",
     },
     iconPfeil: {
         marginTop: 25,
@@ -106,4 +114,10 @@ const styles = StyleSheet.create({
     anzahl: {
         width: "20%"
     },
+    resultatContainer: {
+        flexDirection: "row"
+    },
+    eingabeContainer: {
+        flexDirection: "row"
+    }
 })

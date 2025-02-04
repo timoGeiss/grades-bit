@@ -1,6 +1,6 @@
-import {Dimensions, React, StyleSheet, Text, TextInput, View} from "react-native";
+import {React, StyleSheet, Text, TextInput, View} from "react-native";
 
-export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird}) {
+export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird, platzhalter}) {
 
     return (
         <View style={styles.container}>
@@ -10,7 +10,7 @@ export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird}) {
             <TextInput
                 style={styles.input}
                 keyboardType={"numeric"}
-                placeholder={titel}
+                placeholder={platzhalter}
                 value={inhalt}
                 onChangeText={(value) => wennInhaltVerändertWird(value)}
             ></TextInput>

@@ -98,16 +98,19 @@ export default function Index() {
                 titel={"Titel der Prüfung"}
                 inhalt={note.titel}
                 wennInhaltVerändertWird={(neuerInhalt) => noteSetzen({...note, titel: neuerInhalt})}
+                platzhalter={"Neuer Name"}
             />
             <Zahlenfeld
                 titel={"Note"}
                 inhalt={note.wert.toString()}
                 wennInhaltVerändertWird={(neuerInhalt) => noteSetzen({...note, wert: neuerInhalt})}
+                platzhalter={"4"}
             />
             <Zahlenfeld
                 titel={"Gewichtung"}
                 inhalt={note.gewichtung.toString()}
                 wennInhaltVerändertWird={(neuerInhalt) => noteSetzen({...note, gewichtung: neuerInhalt})}
+                platzhalter={"1"}
             />
 
             {error ? <Text style={styles.error}>{error}</Text> : null}

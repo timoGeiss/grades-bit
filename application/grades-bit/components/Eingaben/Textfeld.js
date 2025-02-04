@@ -1,6 +1,6 @@
 import {React, StyleSheet, TextInput, View, Text} from "react-native";
 
-export default function Textfeld({titel, inhalt, wennInhaltVerändertWird}) {
+export default function Textfeld({titel, inhalt, wennInhaltVerändertWird, platzhalter}) {
 
     return (
         <View style={styles.container}>
@@ -9,7 +9,7 @@ export default function Textfeld({titel, inhalt, wennInhaltVerändertWird}) {
             </View>
             <TextInput
                 style={styles.input}
-                placeholder={titel}
+                placeholder={platzhalter}
                 value={inhalt}
                 onChangeText={(value) => wennInhaltVerändertWird(value)}
             ></TextInput>
@@ -20,6 +20,7 @@ export default function Textfeld({titel, inhalt, wennInhaltVerändertWird}) {
 const styles = StyleSheet.create({
     container: {
         marginTop: 16,
+        width: "100%"
     },
     text: {
         backgroundColor: "#f2f2f2",

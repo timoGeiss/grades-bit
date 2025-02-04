@@ -48,6 +48,7 @@ export default function Edit() {
                 titel={"Name des Fachs"}
                 inhalt={fach.name}
                 wennInhaltVerändertWird={(neuerInhalt) => fachSetzen({...fach, name: neuerInhalt})}
+                platzhalter={"Neuer Name"}
             />
 
             {error ? <Text style={styles.error}>{error}</Text> : null}

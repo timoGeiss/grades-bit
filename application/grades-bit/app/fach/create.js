@@ -31,6 +31,7 @@ export default function FachErstellen() {
                 titel={"Name des Fachs"}
                 inhalt={name}
                 wennInhaltVerändertWird={(neuerInhalt) => nameSetzen(neuerInhalt)}
+                platzhalter={"Mathematik"}
             />
 
             {error ? <Text style={styles.error}>{error}</Text> : null}

@@ -60,16 +60,19 @@ export default function NoteErstellen() {
                 titel={"Titel der Prüfung"}
                 inhalt={titel}
                 wennInhaltVerändertWird={(neuerInhalt) => titelSetzen(neuerInhalt)}
+                platzhalter={"Algebratest"}
             />
             <Zahlenfeld
                 titel={"Note"}
                 inhalt={note}
                 wennInhaltVerändertWird={(neuerInhalt) => noteSetzen(neuerInhalt)}
+                platzhalter={"4"}
             />
             <Zahlenfeld
                 titel={"Gewichtung"}
                 inhalt={gewichtung}
                 wennInhaltVerändertWird={(neuerInhalt) => gewichtungSetzen(neuerInhalt)}
+                platzhalter={"1"}
             />
 
             {error ? <Text style={styles.error}>{error}</Text> : null}
