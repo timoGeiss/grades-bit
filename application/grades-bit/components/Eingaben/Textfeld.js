@@ -12,6 +12,8 @@ export default function Textfeld({titel, inhalt, wennInhaltVerändertWird, platz
                 placeholder={platzhalter}
                 value={inhalt}
                 onChangeText={(value) => wennInhaltVerändertWird(value)}
+                returnKeyType={"done"}
+
             ></TextInput>
         </View>
     )

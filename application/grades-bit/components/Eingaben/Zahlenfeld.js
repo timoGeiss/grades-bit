@@ -13,6 +13,7 @@ export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird, pla
                 placeholder={platzhalter}
                 value={inhalt}
                 onChangeText={(value) => wennInhaltVerändertWird(value)}
+                returnKeyType={"done"}
             ></TextInput>
         </View>
     )
