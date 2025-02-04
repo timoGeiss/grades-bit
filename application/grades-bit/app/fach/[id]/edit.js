@@ -59,7 +59,7 @@ export default function Edit() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#fff",
+        backgroundColor: "#f2f2f2",
         flex: 1,
         paddingTop: 64,
         padding: 24,

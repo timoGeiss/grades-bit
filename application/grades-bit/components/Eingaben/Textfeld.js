@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         marginTop: 16,
     },
     text: {
-        backgroundColor: "white",
+        backgroundColor: "#f2f2f2",
         alignSelf: "flex-start",
         position: "absolute",
         top: -8,

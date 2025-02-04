@@ -9,6 +9,7 @@ import FrageFenster from "../../../components/Eingaben/FrageFenster";
 import Durchschnitt from "../../../components/Durchschnitt";
 import TrennLinie from "../../../components/TrennLinie";
 import {StatusBar} from "expo-status-bar";
+import Wunschnote from "../../../components/Wunschnote";
 
 export default function Index() {
     const {id} = useLocalSearchParams()
@@ -85,6 +86,7 @@ export default function Index() {
                 <TrennLinie/>
                 <Durchschnitt noten={noten}/>
             </View>
+            <Wunschnote fachId={id}/>
         </View>
     )
 }
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
     },
     list: {
         marginTop: 8,
-        height: Dimensions.get("window").height/100*63,
+        maxHeight: Dimensions.get("window").height/100*40,
     },
     durchschnitt: {
         // marginLeft: 8,

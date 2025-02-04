@@ -1,6 +1,6 @@
 import {React, StyleSheet, Text, TextInput, View} from "react-native";
 
-export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird, mitKomma}) {
+export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird}) {
 
     return (
         <View style={styles.container}>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     text: {
-        backgroundColor: "#fff",
+        backgroundColor: "#f2f2f2",
         alignSelf: "flex-start",
         position: "absolute",
         top: -8,

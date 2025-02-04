@@ -65,7 +65,6 @@ export default function NoteErstellen() {
                 titel={"Note"}
                 inhalt={note}
                 wennInhaltVerändertWird={(neuerInhalt) => noteSetzen(neuerInhalt)}
-                mitKomma={true}
             />
             <Zahlenfeld
                 titel={"Gewichtung"}
@@ -81,7 +80,7 @@ export default function NoteErstellen() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#fff",
+        backgroundColor: "#f2f2f2",
         flex: 1,
         paddingTop: 64,
         padding: 24,
