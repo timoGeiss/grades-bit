@@ -1,15 +1,10 @@
-import {Alert, Modal, Pressable, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Modal, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-export default function FrageFenster({titel, text, istSichtbar, sichtbarkeitSetzen, wennBesätigigenAngeklickt, wennAbbrechenAngeklickt}) {
-    function bestätigen() {
+export default function OkFenster({titel, text, istSichtbar, sichtbarkeitSetzen, wennOkAngeklickt}) {
+    function schliessen() {
         sichtbarkeitSetzen(false)
-        wennBesätigigenAngeklickt()
+        wennOkAngeklickt()
     }
-    function abbrechen() {
-        sichtbarkeitSetzen(false)
-        wennAbbrechenAngeklickt()
-    }
-
 
     return (
         <View style={styles.container}>
@@ -17,7 +12,9 @@ export default function FrageFenster({titel, text, istSichtbar, sichtbarkeitSetz
                 animationType={"slide"}
                 transparent={true}
                 visible={istSichtbar}
-                onRequestClose={abbrechen}>
+                onRequestClose={() => {
+                    schliessen()
+                }}>
 
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
@@ -26,14 +23,9 @@ export default function FrageFenster({titel, text, istSichtbar, sichtbarkeitSetz
 
                             <View style={styles.buttonContainer}>
                             <TouchableOpacity
-                                style={[styles.button, styles.buttonSecondary]}
-                                onPress={bestätigen}>
-                                <Text style={styles.textStyle}>Bestätigen</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
                                 style={[styles.button, styles.buttonPrimary]}
-                                onPress={abbrechen}>
-                                <Text style={styles.textStyle}>Abbrechen</Text>
+                                onPress={schliessen}>
+                                <Text style={styles.textStyle}>OK</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -90,9 +82,6 @@ const styles = StyleSheet.create({
     },
     buttonPrimary: {
         backgroundColor: "orange",
-    },
-    buttonSecondary: {
-        backgroundColor: '#FEC967',
     },
     textStyle: {
         color: 'white',

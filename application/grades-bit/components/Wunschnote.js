@@ -6,12 +6,16 @@ import Zahlenfeld from "./Eingaben/Zahlenfeld";
 import AnzeigeFeld from "./AnzeigeFeld";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import IconKnopf from "./Eingaben/IconKnopf";
+import OkFenster from "./Eingaben/OkFenster";
 
 export default function Wunschnote({fachId}) {
     const [noten, notenSetzen] = useState([]);
     const [wunschnote, wunschnoteSetzen] = useState(null);
     const [benötigteNote, benötigteNoteSetzen] = useState("N/A");
     const [anzahlBenötigteNote, anzahlBenötigteNoteSetzen] = useState("N/A");
+    const [istSichtbar, istSichtbarSetzen] = useState(false);
+    const [okFensterTitel, okFensterTitelSetzen] = useState("Titel");
+    const [okFensterText, okFensterTextSetzen] = useState("Text");
 
     useFocusEffect(
         useCallback(() => {
@@ -33,28 +37,41 @@ export default function Wunschnote({fachId}) {
             return
         }
         if (wunschnote > 6) {
-            alert("Wunschnote muss kleiner 6 sein")
+            okFensterÖffnen("Fehler", "Wunschnote muss kleiner 6 sein")
             return;
         }
 
+        const überprüfteNote = Number(wunschnote)
+        if (isNaN(überprüfteNote)) {
+            okFensterÖffnen("Fehler", "Die Note muss eine Zahl sein (Nur . erlaubt kein ,)")
+            return
+        }
 
         let summe = 0;
         for (const note of noten) {
-            summe += note.wert
+            summe -= note.wert * note.gewichtung
+        }
+        let summeGewichtungen = 0
+        for (const note of noten) {
+            summeGewichtungen += note.gewichtung;
         }
 
         let x = 0
         let i = 1
         while (true) {
-            x = (wunschnote * (noten.length + i) - summe) / i
-            console.log(x)
+            x = (wunschnote * (summeGewichtungen + i ) + summe) / i
+
             if (i > 100) {
-                benötigteNoteSrretzen("N/A")
+                benötigteNoteSetzen("N/A")
                 anzahlBenötigteNoteSetzen("N/A")
-                alert("Die gewünschte Note kann nicht mehr erreicht werden")
+                okFensterÖffnen("Fehler", "Die gewünschte Note kann nicht mehr erreicht werden (ausser es werden mehr als 100 Tests geschrieben)")
                 return;
             }
 
+            if (x < 1) {
+                i++
+                continue
+            }
             if (x <= 6) {
                 break
             }
@@ -66,8 +83,15 @@ export default function Wunschnote({fachId}) {
         anzahlBenötigteNoteSetzen(i.toString())
     }
 
+    function okFensterÖffnen(titel, text) {
+        okFensterTitelSetzen(titel)
+        okFensterTextSetzen(text)
+        istSichtbarSetzen(true)
+    }
+
     return (
         <View style={styles.container}>
+            <OkFenster titel={okFensterTitel} text={okFensterText} istSichtbar={istSichtbar} sichtbarkeitSetzen={istSichtbarSetzen} wennOkAngeklickt={() => {}}/>
             <View style={styles.eingabeContainer}>
                 <View style={styles.wunschnote}>
                     <Zahlenfeld

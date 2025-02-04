@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Improved Styling">
+      <change afterPath="$PROJECT_DIR$/components/Eingaben/OkFenster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/fach/[id]/edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/[id]/edit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/fach/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/fach/create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/note/[id]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/note/[id]/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/note/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/note/create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Eingaben/Textfeld.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Eingaben/Textfeld.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Eingaben/Zahlenfeld.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Eingaben/Zahlenfeld.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Eingaben/FrageFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Eingaben/FrageFenster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Wunschnote.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Wunschnote.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,23 +33,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Softwareschmiede/grades-bit/application/grades-bit&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Softwareschmiede\\grades-bit\\application\\grades-bit\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Softwareschmiede/grades-bit/application/grades-bit/components/Eingaben",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "ts.external.directory.path": "C:\\Users\\Softwareschmiede\\grades-bit\\application\\grades-bit\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\components\Eingaben" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\app\fach\[id]" />
       <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\app\fach" />
@@ -84,7 +83,7 @@
       <workItem from="1737635035276" duration="733000" />
       <workItem from="1737979656296" duration="9604000" />
       <workItem from="1738045695309" duration="11790000" />
-      <workItem from="1738653044907" duration="14452000" />
+      <workItem from="1738653044907" duration="19497000" />
     </task>
     <task id="LOCAL-00001" summary="create page almost finished">
       <option name="closed" value="true" />
