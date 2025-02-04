@@ -25,6 +25,6 @@ export default function NotenListe({noten}) {
 
 const styles = StyleSheet.create({
     keineGefunden: {
-        marginTop: 16,
+        margin: 16,
     }
 })

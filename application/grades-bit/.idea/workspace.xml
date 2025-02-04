@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Improved Styling">
-      <change afterPath="$PROJECT_DIR$/components/Eingaben/OkFenster.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Eingaben/FrageFenster.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Eingaben/FrageFenster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Wunschnote.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Wunschnote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/NotenListe.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenListe.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +81,7 @@
       <workItem from="1737635035276" duration="733000" />
       <workItem from="1737979656296" duration="9604000" />
       <workItem from="1738045695309" duration="11790000" />
-      <workItem from="1738653044907" duration="19497000" />
+      <workItem from="1738653044907" duration="20095000" />
     </task>
     <task id="LOCAL-00001" summary="create page almost finished">
       <option name="closed" value="true" />
