@@ -1,13 +1,16 @@
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, View, React} from 'react-native';
+import {StyleSheet, View, React, Dimensions} from 'react-native';
 import {useCallback, useState, } from "react";
-import {getAllFaecher} from "../database"
+import {getAllFaecher, getAllNoten} from "../database"
 import FachList from "../components/Listen/FachList";
 import {router, useFocusEffect} from "expo-router";
 import Knopf from "../components/Eingaben/Knopf";
+import TrennLinie from "../components/TrennLinie";
+import Durchschnitt from "../components/Durchschnitt";
 
 export default function index() {
     const [faecher, setFaecher] = useState([])
+    const [noten, setNoten] = useState([])
 
     useFocusEffect(
         useCallback(() => {
@@ -15,7 +18,14 @@ export default function index() {
                 const daten = await getAllFaecher()
                 setFaecher(daten)
             }
+
+            async function alleNotenBekommen() {
+                const daten = await getAllNoten()
+                setNoten(daten)
+            }
+
             getFaecher()
+            alleNotenBekommen()
         }, [])
     );
 
@@ -27,8 +37,12 @@ export default function index() {
         <View style={styles.container}>
             <StatusBar/>
             <Knopf beimKlicken={zumErstellen} text={"Fach hinzufügen"}/>
-            <View style={styles.margin}>
+            <View style={styles.list}>
                 <FachList faecher={faecher}/>
+            </View>
+            <View>
+                <TrennLinie/>
+                <Durchschnitt noten={noten}/>
             </View>
         </View>
     );
@@ -37,7 +51,6 @@ export default function index() {
 const styles = StyleSheet.create({
     container: {
         padding: 8,
-        height: "100%"
     },
 
     text: {
@@ -46,5 +59,10 @@ const styles = StyleSheet.create({
 
     margin: {
         marginBottom: 200,
+    },
+
+    list: {
+        marginTop: 8,
+        height: Dimensions.get("window").height/100*70
     }
 });

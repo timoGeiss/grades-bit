@@ -86,6 +86,21 @@ export async function getNoteById(id) {
     return result;
 }
 
+export async function getAllNoten() {
+    const db = await main();
+    let result;
+    const selectTasksByProjectStatement = await db.prepareAsync(`SELECT * FROM note`);
+
+    try {
+        result = await db.getAllAsync(`SELECT * FROM note`);
+    } catch (e) {
+        console.log(e);
+    } finally {
+        await selectTasksByProjectStatement.finalizeAsync();
+    }
+    return result;
+}
+
 export async function insertIntoFach(name) {
     const db = await main();
     let result;

@@ -70,7 +70,7 @@ export default function Index() {
                 wennBesätigigenAngeklickt={fachLöschen}/>
 
             <View style={styles.titleBar}>
-                <Text style={styles.titel}>{fach.name}</Text>
+                <Text style={styles.titel} numberOfLines={1}>{fach.name}</Text>
                 <View style={styles.icons}>
                     <IconKnopf beimKlicken={zumBearbeiten} icon={"pencil"}/>
                     <IconKnopf beimKlicken={frageLöschen} icon={"trash"}/>
@@ -81,8 +81,10 @@ export default function Index() {
             <View style={styles.list}>
                 <NotenListe noten={noten}/>
             </View>
-            {noten.length > 0 && <TrennLinie/>}
-            {noten.length > 0 && <Durchschnitt noten={noten}/>}
+            <View style={styles.durchschnitt}>
+                <TrennLinie/>
+                <Durchschnitt noten={noten}/>
+            </View>
         </View>
     )
 }
@@ -90,7 +92,7 @@ export default function Index() {
 const styles = StyleSheet.create({
     container: {
         padding: 8,
-        height: Dimensions.get("window").height,
+        // height: Dimensions.get("window").height,
     },
     icons: {
         display: "flex",
@@ -109,11 +111,15 @@ const styles = StyleSheet.create({
         paddingVertical: 16,
         flex: 1,
         marginRight: 16,
-        overflow: "hidden"
     },
-
     list: {
         marginTop: 8,
-        height: Dimensions.get("window").height/100*60,
+        height: Dimensions.get("window").height/100*63,
+    },
+    durchschnitt: {
+        // marginLeft: 8,
+        width: "100%",
+        // position: "absolute",
+        // bottom: -50,
     }
 });
