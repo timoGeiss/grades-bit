@@ -24,6 +24,6 @@ export default function FachList({faecher}) {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 16,
+
     }
 })
