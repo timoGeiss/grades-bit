@@ -3,7 +3,7 @@ import * as SQLite from 'expo-sqlite';
 
 export async function main() {
     //Creates local SQLite database named dbFreelanceTracker
-    const db = await SQLite.openDatabaseAsync('gradedb1');
+    const db = await SQLite.openDatabaseAsync('gradedb5');
 
     //Creates all tables and relations needed for our Project.
     await db.execAsync(`	
@@ -209,6 +209,20 @@ export async function removeNote(id) {
         console.log(e);
     } finally {
         await deleteStatement.finalizeAsync();
+    }
+    return result;
+}
+
+export async function getAlles() {
+    const db = await main();
+    let result;
+    const selectProjectsStatement = await db.prepareAsync('SELECT * FROM fach');
+    try {
+        result = await db.getAllAsync("SELECT * FROM fach JOIN note ON note.fach_id = fach.id");
+    } catch (e) {
+        console.log(e);
+    } finally {
+        await selectProjectsStatement.finalizeAsync();
     }
     return result;
 }
