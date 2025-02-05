@@ -10,6 +10,12 @@ export default function _layout() {
             }, headerTintColor: "black"
         }}/>
 
+        <Stack.Screen name={"export"} options={{
+        title: "Export", headerStyle: {
+            backgroundColor: "orange",
+            }, headerTintColor: "black"
+        }}/>
+
         <Stack.Screen name={"fach/create"} options={{
             title: "Fach erstellen", headerStyle: {
                 backgroundColor: "orange",
