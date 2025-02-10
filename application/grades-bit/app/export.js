@@ -3,63 +3,45 @@ import {StatusBar} from "expo-status-bar";
 import * as Print from "expo-print";
 import * as Sharing from "expo-sharing"
 import {useEffect, useState} from "react";
-import {getAlles, getAllFaecher, getAllNoten, getNotenByFachId} from "../database";
-import * as FileSystem from "expo-file-system";
+import {getAlles, getAllFaecher, getFachById, getNotenByFachId} from "../database";
 import {Picker} from "@react-native-picker/picker";
 
 
 export default function Export() {
-    const model = {
-        auswahl: "",
-        pruefung: ""
-    }
-
-    const [alleDaten, alleDatenSetzen] = useState([]);
     const [pruefungen, pruefungenSetzen] = useState([]);
-    const [optionen, optionenSetzen] = useState(model);
+    const [optionen, optionenSetzen] = useState("0");
 
     useEffect(() => {
         const getData = async () => {
-            const res1 = await getAlles()
-            alleDatenSetzen(res1);
             const res2 = await getAllFaecher()
             pruefungenSetzen(res2);
         }
         getData();
     }, []);
 
-    if (!alleDaten) {
+    if (!pruefungen) {
         return null;
     }
-
 
     return (
         <>
             <StatusBar/>
             <View style={styles.container}>
-                <Text >Was möchtest du Exportieren</Text>
+                <Text style={styles.bigText}>Was möchtest du exportieren?</Text>
                 <Picker
-                    selectedValue={optionen.auswahl}
-                    onValueChange={(itemValue) => {optionenSetzen({ pruefung: null, auswahl: itemValue })}}
+                    selectedValue={optionen}
+                    onValueChange={(itemValue) => {optionenSetzen( itemValue )}}
                     style={styles.picker}
                 >
-                    <Picker.Item label="Alle Noten" value="alle" />
-                    <Picker.Item label="Prüfung" value="pruefung" />
+                    <Picker.Item label="Alle Fächer" value={"0"} />
+                    {pruefungen.map((item) => {
+                        return (
+                            <Picker.Item label={item.name} value={item.id.toString()} key={item.name}/>
+                        )
+                    })}
                 </Picker>
 
-                {optionen.auswahl === "pruefung" ? <View>
-                    <Picker
-                        selectedValue={optionen.pruefung}
-                        onValueChange={(itemValue) => optionenSetzen({ ...optionen, pruefung: itemValue })}
-                        style={styles.picker}
-                    >
-                        {pruefungen.map((item) => (
-                            <Picker.Item label={item.name} value={item} key={item.name}/>
-                        ))}
-                    </Picker>
-                </View> : null}
-
-                <TouchableHighlight style={styles.button} onPress={() => {optionen.pruefung ? generatePDF(optionen.pruefung, true) : generatePDF(alleDaten, false)}}>
+                <TouchableHighlight style={styles.button} onPress={() => {generatePDF(optionen)}}>
                     <Text style={styles.text}>PDF Erstellen</Text>
                 </TouchableHighlight>
             </View>
@@ -67,25 +49,21 @@ export default function Export() {
     )
 }
 
-const generatePDF = async (data, status) => {
-
+const generatePDF = async (id) => {
+    const newId = parseInt(id)
     let htmlContent = `<h1>Deine Noten</h1>`;
 
-    console.log(status)
-    console.log(data)
-
-    if (status === true) {
-        const noten = await getNotenByFachId(data.id);
-        console.log(noten);
+    if (newId !== 0) {
+        const fach = await getFachById(newId)
+        const noten = await getNotenByFachId(newId);
         htmlContent += `
-            <h2>${data.name}</h2>
+            <h2>${fach.name}</h2>
             <ul>
                 ${noten.map(note => `<li>${note.titel}: ${note.wert} Gewichtung: ${note.gewichtung}</li>`).join('')}
             </ul>
         `;
-        console.log(htmlContent);
     } else {
-
+        const data = await getAlles()
         const groupedData = data.reduce((acc, curr) => {
             if (!acc[curr.fach_id]) {
                 acc[curr.fach_id] = {
@@ -95,7 +73,8 @@ const generatePDF = async (data, status) => {
             }
             acc[curr.fach_id].noten.push({
                 titel: curr.titel,
-                wert: curr.wert
+                wert: curr.wert,
+                gewichtung: curr.gewichtung
             });
             return acc;
         }, {});
@@ -128,10 +107,9 @@ const styles = StyleSheet.create({
     },
 
     picker: {
-        height: 70,
-
-        borderColor: "black",
-        borderWidth: 2,
+        // height: 70,
+        // borderColor: "black",
+        // borderWidth: 2,
     },
 
     button: {
@@ -144,6 +122,9 @@ const styles = StyleSheet.create({
         width: '100%',
     },
 
+    bigText: {
+        fontSize: 20,
+    },
     text: {
         textAlign: 'center',
     },
