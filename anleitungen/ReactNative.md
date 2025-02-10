@@ -1,4 +1,4 @@
-# React Native Spickzettel
+# React Native CheatSheet
 
 ## Inhaltsverzeichnis
 - [Setup](#setup)
@@ -44,7 +44,7 @@ import { Text } from 'react-native';
 ```
 
 ### Image
-Zeigt Bilder an.
+Zeigt Bilder an. In der Uri wird der Pfad zum Bild angegeben.
 ```javascript
 import { Image } from 'react-native';
 
@@ -64,6 +64,28 @@ import { Button } from 'react-native';
   onPress={() => alert('Button gedrückt')}
 />
 ```
+
+### TouchableOpacity
+Ist wie ein Button man kann damit auch andere Komponenten anklickbar machen.
+```javascript
+import { TouchableOpacity} from 'react-native';
+
+<TouchableOpacity onPress={() => Alert.alert('Berührt!')}>
+      <Text>Tippe hier</Text>
+</TouchableOpacity>
+```
+
+### Scrollview
+Mit ScrollView kannst du scrollbare Bereiche erstellen, die bei vielen Inhalten nützlich sind.
+```javascript
+import { ScrollView} from 'react-native';
+
+<ScrollView>
+      <Text style={{ fontSize: 20, padding: 10 }}>Langer Text...</Text>
+      <Text style={{ fontSize: 20, padding: 10 }}>Noch mehr Text...</Text>
+</ScrollView>
+```
+
 
 ---
 
@@ -116,7 +138,7 @@ function App() {
 
 ## Zustandsverwaltung
 
-### useState Hook
+### `useState` Hook
 <b>useState</b> ist eine Funktion, mit der du einen Zustand in deiner App speicherst. In diesem Beispiel haben wir eine Variable count, die zu Beginn den Wert 0 hat. Wenn der Benutzer auf den Button klickt, wird der Wert von count um eins erhöht.
 ```javascript
 import React, { useState } from 'react';
@@ -133,11 +155,39 @@ const App = () => {
 };
 ```
 
+### `useEffect` Hook 
+
+Der <b>useEffect</b> Hook wird verwendet, um **Nebenwirkungen** (wie das Abrufen von Daten oder das Aktualisieren der Komponenten) in einer Funktionskomponente auszuführen.
+
+### Beispiel:
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  // useEffect wird nach jedem Rendern ausgeführt
+  useEffect(() => {
+    console.log('Komponente wurde gerendert!');
+  }, [count]); // Nur ausführen, wenn sich `count` ändert
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Erhöhen</button>
+    </div>
+  );
+};
+
+export default App;
+```
+
 ---
 
 ## APIs
 
-### Daten abrufen mit der Fetch API
+### Daten abrufen mit der Fetch API(Fortgeschritten)
 ```javascript
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
@@ -162,14 +212,3 @@ const App = () => {
 
 ---
 
-## Debugging
-
-### Debugging im Emulator aktivieren
-1. Schüttle dein Gerät oder drücke `Cmd + M` / `Ctrl + M` im Emulator.
-2. Wähle "Debug JS Remotely" aus.
-
-### Debugging mit React Developer Tools
-```bash
-npm install -g react-devtools
-react-devtools
-```
