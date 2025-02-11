@@ -4,17 +4,6 @@ export default function AnzeigeFeld({titel, inhalt}) {
 
     return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.text} numberOfLines={1}>{titel}</Text>
-            </View>
-            <TextInput
-                style={styles.input}
-                placeholder={titel}
-                value={inhalt}
-                editable={false}
-                onChangeText={() => {
-                }}
-            ></TextInput>
         </View>
     )
 }

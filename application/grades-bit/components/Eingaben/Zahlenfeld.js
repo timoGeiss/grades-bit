@@ -4,17 +4,6 @@ export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird, pla
 
     return (
         <View style={styles.container}>
-            <View>
-                <Text style={styles.text}>{titel}</Text>
-            </View>
-            <TextInput
-                style={styles.input}
-                keyboardType={"numeric"}
-                placeholder={platzhalter}
-                value={inhalt}
-                onChangeText={(value) => wennInhaltVerändertWird(value)}
-                returnKeyType={"done"}
-            ></TextInput>
         </View>
     )
 }

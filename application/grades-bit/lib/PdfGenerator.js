@@ -1,4 +1,4 @@
-import {getAlles, getFachById, getNotenByFachId} from "../database";
+import {getAlles, getFachById, getNotenByFachId} from "./database";
 import * as Print from "expo-print";
 import * as Sharing from "expo-sharing";
 
