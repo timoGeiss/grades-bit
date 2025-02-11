@@ -86,6 +86,11 @@ Der Datentyp string ist eine Aneinanderreihung von Zeichen ("Die Stadt ist 100 J
 ```js
 let z = "Die Erde"; // Der Datentyp der Variable z ist string
 ```
+Es können auch Variablen direkt in einem String verwendet werden dafür wird das $ Zeichen mit geschweiften Klammern {}  verwendet.
+
+```js
+let z = "Willkomen ${name}!"
+```
 
 ### Boolean
 Der Datentyp boolean ist binär, das bedeutet er kann entweder "true" oder "false" sein. 
