@@ -1,6 +1,6 @@
 # Schnupperprojekt BIT 2025
 
-Bitte Änderungen am Projekt auf dem develop-branch verschieben 
+Bitte Änderungen am Projekt auf dem develop-branch verschieben
 
 Main-Branch - fertige MVP-Versionen
 

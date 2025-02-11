@@ -1,6 +1,5 @@
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {router} from 'expo-router';
-import {useState} from "react";
 
 export default function NotenListeItem({note}) {
     function navigiereZuDetailAnsicht() {

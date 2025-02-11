@@ -1,5 +1,4 @@
-import {Tabs, Stack} from "expo-router"
-import Ionicons from "@expo/vector-icons/Ionicons"
+import {Stack} from "expo-router"
 
 export default function _layout() {
     return (<Stack>
@@ -16,6 +15,6 @@ export default function _layout() {
                 backgroundColor: "orange",
 
             }, headerTintColor: "black"
-        }}/>1
+        }}/>
     </Stack>)
 }

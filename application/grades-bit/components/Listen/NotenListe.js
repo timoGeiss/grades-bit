@@ -1,6 +1,5 @@
 import {FlatList, StyleSheet, Text, View} from "react-native";
 import TrennLinie from "../TrennLinie";
-import FachListItem from "./FachListItem";
 import NotenListeItem from "./NotenListeItem";
 
 export default function NotenListe({noten}) {

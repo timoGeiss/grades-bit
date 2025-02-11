@@ -67,7 +67,8 @@ export default function FachListItem({fach}) {
             <TouchableOpacity onPress={navigiereZuDetailAnsicht} style={styles.container}>
                 <Text style={[styles.text, styles.titel]} numberOfLines={1} ellipsizeMode={"tail"}>{fach.name}</Text>
                 <Text style={styles.schnitt}>{berechneNotenDurchschnitt()}</Text>
-                <View style={[styles.balken, {backgroundColor: erhalteFarbeNachNotenSchnitt(berechneNotenDurchschnitt())}]}><Text></Text></View>
+                <View
+                    style={[styles.balken, {backgroundColor: erhalteFarbeNachNotenSchnitt(berechneNotenDurchschnitt())}]}><Text></Text></View>
             </TouchableOpacity>
         </View>
     )

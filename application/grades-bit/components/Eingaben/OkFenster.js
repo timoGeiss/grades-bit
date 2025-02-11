@@ -21,7 +21,7 @@ export default function OkFenster({titel, text, istSichtbar, sichtbarkeitSetzen,
                         <Text style={styles.titel}>{titel}</Text>
                         <Text style={styles.text}>{text}</Text>
 
-                            <View style={styles.buttonContainer}>
+                        <View style={styles.buttonContainer}>
                             <TouchableOpacity
                                 style={[styles.button, styles.buttonPrimary]}
                                 onPress={schliessen}>

@@ -1,6 +1,7 @@
 # CSS in React Native
 
 **Inhalt**
+
 - [CSS](#css)
   - [Aufbau](#aufbau)
   - [CSS einbinden](#css-einbinden)
@@ -31,5 +32,5 @@ Wir geben einer Komponente mit Style den Idendifikator mit, damit weiss das CSS 
 
 ## Weiterführende Links
 
- - [W3-Schools - CSS](https://www.w3schools.com/css/default.asp)
- - [mdn web docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [W3-Schools - CSS](https://www.w3schools.com/css/default.asp)
+- [mdn web docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)

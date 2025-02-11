@@ -1,15 +1,22 @@
-import {Alert, Modal, Pressable, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Modal, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-export default function FrageFenster({titel, text, istSichtbar, sichtbarkeitSetzen, wennBesätigigenAngeklickt, wennAbbrechenAngeklickt}) {
+export default function FrageFenster({
+                                         titel,
+                                         text,
+                                         istSichtbar,
+                                         sichtbarkeitSetzen,
+                                         wennBesätigigenAngeklickt,
+                                         wennAbbrechenAngeklickt
+                                     }) {
     function bestätigen() {
         sichtbarkeitSetzen(false)
         wennBesätigigenAngeklickt()
     }
+
     function abbrechen() {
         sichtbarkeitSetzen(false)
         wennAbbrechenAngeklickt()
     }
-
 
     return (
         <View style={styles.container}>
@@ -24,7 +31,7 @@ export default function FrageFenster({titel, text, istSichtbar, sichtbarkeitSetz
                         <Text style={styles.titel}>{titel}</Text>
                         <Text style={styles.text}>{text}</Text>
 
-                            <View style={styles.buttonContainer}>
+                        <View style={styles.buttonContainer}>
                             <TouchableOpacity
                                 style={[styles.button, styles.buttonSecondary]}
                                 onPress={bestätigen}>

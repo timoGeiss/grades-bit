@@ -1,6 +1,6 @@
 import {StatusBar} from 'expo-status-bar';
-import {Text, StyleSheet, View, React, Dimensions} from 'react-native';
-import {useCallback, useState, } from "react";
+import {Dimensions, React, StyleSheet, Text, View} from 'react-native';
+import {useCallback, useState,} from "react";
 import {getAllFaecher, getAllNoten} from "../database"
 import FachList from "../components/Listen/FachList";
 import {router, useFocusEffect} from "expo-router";
@@ -48,7 +48,7 @@ export default function index() {
                 <View style={styles.titel}>
                     <Text style={styles.text}>Fächer</Text>
                     <View style={styles.icon}>
-                        <IconKnopf groesse={40}  beimKlicken={zumExportieren} icon={"download-outline"}/>
+                        <IconKnopf groesse={40} beimKlicken={zumExportieren} icon={"download-outline"}/>
                     </View>
                 </View>
                 <FachList faecher={faecher}/>
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     container: {
         padding: 8,
     },
-
 
     titel: {
         width: 120,
@@ -94,6 +93,6 @@ const styles = StyleSheet.create({
 
     list: {
         marginTop: 8,
-        height: Dimensions.get("window").height/100*70
+        height: Dimensions.get("window").height / 100 * 70
     }
 });

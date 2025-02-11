@@ -1,24 +1,24 @@
-import {View, StyleSheet, Text, TouchableHighlight} from "react-native";
+import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import {useEffect, useState} from "react";
 import {getAllFaecher} from "../database";
 import {Picker} from "@react-native-picker/picker";
 import {generatePDF} from "../lib/PdfGenerator";
-
+import Knopf from "../components/Eingaben/Knopf";
 
 export default function Export() {
-    const [pruefungen, pruefungenSetzen] = useState([]);
-    const [optionen, optionenSetzen] = useState("0");
+    const [fächer, fächerSetzen] = useState([]);
+    const [option, optionSetzen] = useState("0");
 
     useEffect(() => {
         const getData = async () => {
-            const res2 = await getAllFaecher()
-            pruefungenSetzen(res2);
+            const daten = await getAllFaecher()
+            fächerSetzen(daten);
         }
         getData();
     }, []);
 
-    if (!pruefungen) {
+    if (!fächer) {
         return null;
     }
 
@@ -28,21 +28,21 @@ export default function Export() {
             <View style={styles.container}>
                 <Text style={styles.bigText}>Was möchtest du exportieren?</Text>
                 <Picker
-                    selectedValue={optionen}
-                    onValueChange={(itemValue) => {optionenSetzen( itemValue )}}
+                    selectedValue={option}
+                    onValueChange={(itemValue) => {
+                        optionSetzen(itemValue)
+                    }}
                     style={styles.picker}
                 >
-                    <Picker.Item label="Alle Fächer" value={"0"} />
-                    {pruefungen.map((item) => {
+                    <Picker.Item label="Alle Fächer" value={"0"}/>
+                    {fächer.map((item) => {
                         return (
                             <Picker.Item label={item.name} value={item.id.toString()} key={item.name}/>
                         )
                     })}
                 </Picker>
 
-                <TouchableHighlight style={styles.button} onPress={() => {generatePDF(optionen)}}>
-                    <Text style={styles.text}>PDF Erstellen</Text>
-                </TouchableHighlight>
+                <Knopf text={"PDF Erstellen"} beimKlicken={() => generatePDF(option)}/>
             </View>
         </>
     )
@@ -53,12 +53,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
-    },
-
-    picker: {
-        // height: 70,
-        // borderColor: "black",
-        // borderWidth: 2,
     },
 
     button: {

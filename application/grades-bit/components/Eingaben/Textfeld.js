@@ -1,4 +1,4 @@
-import {React, StyleSheet, TextInput, View, Text} from "react-native";
+import {React, StyleSheet, Text, TextInput, View} from "react-native";
 
 export default function Textfeld({titel, inhalt, wennInhaltVerändertWird, platzhalter}) {
 

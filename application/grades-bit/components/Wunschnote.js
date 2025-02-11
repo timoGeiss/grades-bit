@@ -1,10 +1,9 @@
 import {Dimensions, React, StyleSheet, View} from "react-native";
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useState} from "react";
 import {useFocusEffect} from "expo-router";
-import {getFachById, getNotenByFachId} from "../database";
+import {getNotenByFachId} from "../database";
 import Zahlenfeld from "./Eingaben/Zahlenfeld";
 import AnzeigeFeld from "./AnzeigeFeld";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import IconKnopf from "./Eingaben/IconKnopf";
 import OkFenster from "./Eingaben/OkFenster";
 
@@ -59,7 +58,7 @@ export default function Wunschnote({fachId}) {
         let x = 0
         let i = 1
         while (true) {
-            x = (wunschnote * (summeGewichtungen + i ) + summe) / i
+            x = (wunschnote * (summeGewichtungen + i) + summe) / i
 
             if (i > 100) {
                 benötigteNoteSetzen("N/A")
@@ -91,7 +90,9 @@ export default function Wunschnote({fachId}) {
 
     return (
         <View style={styles.container}>
-            <OkFenster titel={okFensterTitel} text={okFensterText} istSichtbar={istSichtbar} sichtbarkeitSetzen={istSichtbarSetzen} wennOkAngeklickt={() => {}}/>
+            <OkFenster titel={okFensterTitel} text={okFensterText} istSichtbar={istSichtbar}
+                       sichtbarkeitSetzen={istSichtbarSetzen} wennOkAngeklickt={() => {
+            }}/>
             <View style={styles.eingabeContainer}>
                 <View style={styles.wunschnote}>
                     <Zahlenfeld
@@ -101,7 +102,9 @@ export default function Wunschnote({fachId}) {
                         platzhalter={"6"}
                     />
                 </View>
-                <Ionicons size={32} color="orange" name={"arrow-forward-outline"} style={styles.iconPfeil}/>
+                <View style={styles.iconTaschenrechner}>
+                    <IconKnopf beimKlicken={benötigteNoteBerechnen} icon={"calculator-outline"}/>
+                </View>
             </View>
 
             <View style={styles.resultatContainer}>
@@ -110,9 +113,6 @@ export default function Wunschnote({fachId}) {
                 </View>
                 <View style={styles.anzahl}>
                     <AnzeigeFeld titel={"Anzahl"} inhalt={anzahlBenötigteNote}/>
-                </View>
-                <View style={styles.iconTaschenrechner}>
-                    <IconKnopf beimKlicken={benötigteNoteBerechnen} icon={"calculator-outline"}/>
                 </View>
             </View>
         </View>
