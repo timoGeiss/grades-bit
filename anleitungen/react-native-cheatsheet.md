@@ -3,6 +3,7 @@
 ## Inhaltsverzeichnis
 - [Setup](#setup)
 - [Kernkomponenten](#komponenten)
+- [Zustandsverwaltung](#zustandsverwaltung)
 - [APIs](#apis)
 ---
 
@@ -15,7 +16,7 @@ npm install
 
 ### Entwicklungsserver starten
 ```bash
-npm start
+npx expo start
 ```
 
 ---
@@ -103,6 +104,57 @@ Das Fenster wird nur angezeigt, wenn _istSichtbar_ auf 'true' gesetzt ist. _sich
     wennAbbrechenAngeklickt={() => {}}
     wennBesätigigenAngeklickt={noteLöschen}/>
 ```
+
+## Zustandsverwaltung
+
+### `useState` Hook
+<b>useState</b> ist eine Funktion, mit der du einen Variable in deiner App speicherst. In diesem Beispiel haben wir eine Variable count, die zu Beginn den Wert 0 hat. Wenn der Benutzer auf den Button klickt, wird der Wert von count um eins erhöht.
+Wenn sich die Varible im UseState ändert wird die Komponente aktualisiert.
+```javascript
+import React, { useState } from 'react';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <View>
+      <Text>{count}</Text>
+      <Button title="Erhöhen" onPress={() => setCount(count + 1)} />
+    </View>
+  );
+};
+```
+
+### `useEffect` Hook 
+
+Der <b>useEffect</b> Hook wird verwendet, um auf Änderungen an der Seite zu reagieren und die Seite zu aktualisieren.
+
+### Beispiel:
+
+```jsx
+import React, { useState, useEffect } from 'react';
+import { View, Text } from 'react-native';
+
+const SimpleExample = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log('Komponente wurde gerendert!');
+  }, []); // Nur einmal beim ersten Rendern ausgeführt
+
+  return (
+    <View>
+      <Text>Aktueller Zähler: {count}</Text>
+      <Text onPress={() => setCount(count + 1)}>Erhöhe Zähler</Text>
+    </View>
+  );
+};
+
+export default SimpleExample;
+```
+
+---
+
 ## APIs
 
 ### Daten abrufen mit der Fetch API(Fortgeschritten)

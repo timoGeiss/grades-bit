@@ -5,8 +5,6 @@
   - [Kommentare](#kommentare)
     - [Einzeiliger Kommentar](#einzeiliger-kommentar)
     - [Mehrzeiliger Kommentar](#mehrzeiliger-kommentar)
-  - [HTML Inhalte mit JavaScript ändern](#html-inhalte-mit-javascript-ändern)
-  - [Output Optionen](#output-optionen)
   - [Variablen](#variablen)
     - [Was sind Variablen?](#was-sind-variablen)
     - [Deklaration](#deklaration)
@@ -54,18 +52,6 @@ Nebst dem "normalen" Code, können auch Kommentare geschrieben werden. Es gibt e
     ein mehrzeiliger Kommentar
 */
 ```
-
-## HTML Inhalte mit JavaScript ändern
-Mit der Methode getElementById() kann ein HTML-Element via seiner Id selektiert werden und dessen Inhalt verändert werden. 
-```js
-document.getElementById("demo").innerText = "Hello JavaScript";
-```
-
-## Output Optionen
-1. Ins HTML schreiben mit innerText.
-2. Ins HTML schreiben mit document.write().
-3. In eine Alertbox schrieben mit window.alert().
-4. In die Konsole des Browsers schreiben mit console.log().
 
 ## Variablen 
 ### Was sind Variablen?
