@@ -1,7 +1,7 @@
 import {Dimensions, React, StyleSheet, Text, View} from "react-native";
 import {router, useFocusEffect, useLocalSearchParams} from "expo-router";
-import {useCallback, useEffect, useState} from "react";
-import {getAllFaecher, getFachById, getNotenByFachId, insertIntoFach, removeFach, removeNote} from "../../../database";
+import {useCallback, useState} from "react";
+import {getFachById, getNotenByFachId, removeFach, removeNote} from "../../../database";
 import NotenListe from "../../../components/Listen/NotenListe";
 import Knopf from "../../../components/Eingaben/Knopf";
 import IconKnopf from "../../../components/Eingaben/IconKnopf";
@@ -67,7 +67,8 @@ export default function Index() {
                 titel={"Löschung Bestätigen"}
                 istSichtbar={istSichtbar}
                 sichtbarkeitSetzen={sichtbarkeitSetzen}
-                wennAbbrechenAngeklickt={() => {}}
+                wennAbbrechenAngeklickt={() => {
+                }}
                 wennBesätigigenAngeklickt={fachLöschen}/>
 
             <View style={styles.titleBar}>
@@ -94,7 +95,6 @@ export default function Index() {
 const styles = StyleSheet.create({
     container: {
         padding: 8,
-        // height: Dimensions.get("window").height,
     },
     icons: {
         display: "flex",
@@ -116,12 +116,9 @@ const styles = StyleSheet.create({
     },
     list: {
         marginTop: 8,
-        maxHeight: Dimensions.get("window").height/100*40,
+        maxHeight: Dimensions.get("window").height / 100 * 40,
     },
     durchschnitt: {
-        // marginLeft: 8,
         width: "100%",
-        // position: "absolute",
-        // bottom: -50,
     }
 });

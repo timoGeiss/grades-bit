@@ -22,7 +22,6 @@ export default function Zahlenfeld({titel, inhalt, wennInhaltVerändertWird, pla
 const styles = StyleSheet.create({
     container: {
         marginTop: 16,
-        // minWidth: Dimensions.get("window").width/100*50,
         width: '100%',
     },
     input: {

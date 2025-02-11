@@ -1,4 +1,4 @@
-import {View, StyleSheet, Text, React} from "react-native";
+import {React, StyleSheet, Text, View} from "react-native";
 import {router, useFocusEffect, useLocalSearchParams} from "expo-router";
 import {useCallback, useState} from "react";
 import {getNoteById, removeNote, updateNote} from "../../../database";
@@ -25,7 +25,6 @@ export default function Index() {
             async function getNote() {
                 const daten = await getNoteById(id)
                 noteSetzen(daten[0])
-                console.log(daten)
             }
 
             getNote()
@@ -90,7 +89,8 @@ export default function Index() {
                 titel={"Löschung Bestätigen"}
                 istSichtbar={istSichtbar}
                 sichtbarkeitSetzen={sichtbarkeitSetzen}
-                wennAbbrechenAngeklickt={() => {}}
+                wennAbbrechenAngeklickt={() => {
+                }}
                 wennBesätigigenAngeklickt={noteLöschen}/>
 
             <Text style={styles.bigText}>Was für eine Note möchtests du erstellen?</Text>

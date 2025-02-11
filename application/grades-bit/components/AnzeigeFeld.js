@@ -1,4 +1,4 @@
-import {React, StyleSheet, TextInput, View, Text} from "react-native";
+import {React, StyleSheet, Text, TextInput, View} from "react-native";
 
 export default function AnzeigeFeld({titel, inhalt}) {
 
@@ -12,7 +12,8 @@ export default function AnzeigeFeld({titel, inhalt}) {
                 placeholder={titel}
                 value={inhalt}
                 editable={false}
-                onChangeText={() => {}}
+                onChangeText={() => {
+                }}
             ></TextInput>
         </View>
     )

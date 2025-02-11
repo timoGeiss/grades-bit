@@ -1,18 +1,19 @@
 # HTML
 
 **Inhalt**
+
 - [HTML](#html)
-  - [Text](#text)
-    - [Textabsätze](#textabsätze)
-    - [Überschriften](#überschriften)
-    - [Hervorhebungen](#hervorhebungen)
-    - [Listen](#listen)
-    - [Links](#links)
-  - [Bilder](#bilder)
-  - [Benutzer eingaben](#benutzer-eingaben)
-    - [Knöpfe](#knöpfe)
-    - [Input-Element](#input-element)
-  - [Weiterführende Links](#weiterführende-links)
+    - [Text](#text)
+        - [Textabsätze](#textabsätze)
+        - [Überschriften](#überschriften)
+        - [Hervorhebungen](#hervorhebungen)
+        - [Listen](#listen)
+        - [Links](#links)
+    - [Bilder](#bilder)
+    - [Benutzer eingaben](#benutzer-eingaben)
+        - [Knöpfe](#knöpfe)
+        - [Input-Element](#input-element)
+    - [Weiterführende Links](#weiterführende-links)
 
 <div style="page-break-after: always;"></div>
 
@@ -40,6 +41,7 @@
 <h5>Amir</h5>
 <h6>Consenter</h6>
 ```
+
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
 <h1>Lorem</h1>
 <h2>Ipsum</h2>
@@ -51,18 +53,18 @@
 
 ### Hervorhebungen
 
-Der  im `<strong></strong>` umschlossene Text soll stark hervorgehoben werden und wird in der Regel fett dargestellt.
-Der  im `<em></em>` umschlossene Text soll hervorgehoben werden (emphasize) und wird in der Regel kursiv dargestellt.
+Der im `<strong></strong>` umschlossene Text soll stark hervorgehoben werden und wird in der Regel fett dargestellt.
+Der im `<em></em>` umschlossene Text soll hervorgehoben werden (emphasize) und wird in der Regel kursiv dargestellt.
 
 ``` html
 <p> <strong>Lorem</strong> Ipsum <em>dolor</em></p>
 ```
+
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <p> <strong>Lorem</strong> Ipsum <em>dolor</em></p>
 </div>
 
 ### Listen
-
 
 `<ul></ul>` Liste mit Punkten als Aufzählungszeichen – kann nur in Verbindung mit `<li>`-Elementen verwendet werden.
 
@@ -115,6 +117,7 @@ Fügt einen Link ein, das Attribut `href` (Hyperreference) muss vorhanden sein.
 ``` html
 <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared">my cool vid</a>
 ```
+
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared">my cool vid</a>
 </div>
@@ -126,6 +129,7 @@ Fügt ein Bild in das HTML-Dokument ein, das Attribut src (source, Quelle) muss 
 ``` html
 <img src="https://picsum.photos/seed/beispiel/200/200">
 ```
+
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <img src="https://picsum.photos/seed/beispiel/200/200">
 </div>
@@ -148,6 +152,7 @@ function myFunction() {
 }
 </script>
 ```
+
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
 <button onclick="myFunction()">Klick mich!</button>
 
@@ -159,7 +164,6 @@ function myFunction() {
 </div>
 
 ### Input-Element
-
 
 ``` html
 <label>Checkbox</label><br>
@@ -177,6 +181,7 @@ function myFunction() {
 <label>Text</label><br>
 <input type="text"><br>
 ```
+
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <label>Checkbox</label><br>
     <input type="checkbox"><br>
@@ -198,5 +203,5 @@ Für mehr Infos klicke [hier](https://www.w3schools.com/html/html_forms.asp).
 
 ## Weiterführende Links
 
- - [W3-Schools - HTML](https://www.w3schools.com/html/default.asp)
- - [mdn web docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [W3-Schools - HTML](https://www.w3schools.com/html/default.asp)
+- [mdn web docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)

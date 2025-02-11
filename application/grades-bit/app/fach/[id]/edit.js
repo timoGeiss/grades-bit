@@ -2,7 +2,7 @@ import {React, StyleSheet, Text, View} from "react-native";
 import Textfeld from "../../../components/Eingaben/Textfeld";
 import Knopf from "../../../components/Eingaben/Knopf";
 import {useEffect, useState} from "react";
-import {getFachById, insertIntoFach, updateFach} from "../../../database";
+import {getFachById, updateFach} from "../../../database";
 import {router, useLocalSearchParams} from "expo-router";
 import {StatusBar} from "expo-status-bar";
 
@@ -20,17 +20,16 @@ export default function Edit() {
             const data = await getFachById(id);
             fachSetzen(data);
         }
+
         FachLaden()
     }, [id]);
 
     async function formularBestätigt() {
         if (fach.name.length < 2) {
             errorSetzen("Name ist zu kurz")
-        }
-        else if (fach.name.length > 20) {
+        } else if (fach.name.length > 20) {
             errorSetzen("Name ist zu lang")
-        }
-        else {
+        } else {
             await updateFach(id, fach.name)
             router.back()
         }

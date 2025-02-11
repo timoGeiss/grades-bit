@@ -13,11 +13,9 @@ export default function FachErstellen() {
     async function formularBestätigt() {
         if (name.length < 2) {
             errorSetzen("Name ist zu kurz")
-        }
-        else if (name.length > 20) {
+        } else if (name.length > 20) {
             errorSetzen("Name ist zu lang")
-        }
-        else {
+        } else {
             await insertIntoFach(name)
             router.back()
         }

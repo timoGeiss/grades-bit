@@ -1,10 +1,10 @@
-import {View, Text, StyleSheet, React} from "react-native";
+import {React, StyleSheet, Text, View} from "react-native";
 import Textfeld from "../../components/Eingaben/Textfeld";
 import {useState} from "react";
 import Zahlenfeld from "../../components/Eingaben/Zahlenfeld";
 import Knopf from "../../components/Eingaben/Knopf";
-import {insertIntoFach, insertIntoNote} from "../../database";
-import {router, useLocalSearchParams, useRouter} from "expo-router";
+import {insertIntoNote} from "../../database";
+import {router, useLocalSearchParams} from "expo-router";
 import {StatusBar} from "expo-status-bar";
 
 export default function NoteErstellen() {

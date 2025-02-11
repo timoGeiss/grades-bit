@@ -1,6 +1,4 @@
-import {Tabs, Stack} from "expo-router"
-import Ionicons from "@expo/vector-icons/Ionicons"
-import {Dimensions} from "react-native";
+import {Stack} from "expo-router"
 
 export default function _layout() {
     return (<Stack>
@@ -11,8 +9,8 @@ export default function _layout() {
         }}/>
 
         <Stack.Screen name={"export"} options={{
-        title: "Export", headerStyle: {
-            backgroundColor: "orange",
+            title: "Export", headerStyle: {
+                backgroundColor: "orange",
             }, headerTintColor: "black"
         }}/>
 

@@ -3,6 +3,11 @@ import * as Print from "expo-print";
 import * as Sharing from "expo-sharing";
 
 export async function generatePDF(id) {
+    if (isNaN(id)) {
+        console.error("Id musse eine Zahl sein! 0 = Alle");
+        return;
+    }
+
     const newId = parseInt(id)
     let htmlContent = `<h1>Deine Noten</h1>`;
 
@@ -42,7 +47,7 @@ export async function generatePDF(id) {
         });
     }
 
-    const { uri } = await Print.printToFileAsync({
+    const {uri} = await Print.printToFileAsync({
         html: htmlContent,
     });
 

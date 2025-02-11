@@ -1,16 +1,17 @@
 # CSS
 
 **Inhalt**
+
 - [CSS](#css)
-  - [Aufbau](#aufbau)
-  - [CSS ins html einbinden](#css-ins-html-einbinden)
-    - [Inline CSS](#inline-css)
-    - [style tags](#style-tags)
-    - [CSS File](#css-file)
-  - [Selektoren](#selektoren)
-    - [Tag Selektoren](#tag-selektoren)
-    - [Class Selektoren](#class-selektoren)
-  - [Weiterführende Links](#weiterführende-links)
+    - [Aufbau](#aufbau)
+    - [CSS ins html einbinden](#css-ins-html-einbinden)
+        - [Inline CSS](#inline-css)
+        - [style tags](#style-tags)
+        - [CSS File](#css-file)
+    - [Selektoren](#selektoren)
+        - [Tag Selektoren](#tag-selektoren)
+        - [Class Selektoren](#class-selektoren)
+    - [Weiterführende Links](#weiterführende-links)
 
 <div style="page-break-after: always;"></div>
 
@@ -39,6 +40,7 @@ schreiben wir unser CSS gerade im HTML.
 ``` html
 <p style="color: red">Lorem Ipsum</p>
 ```
+
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <p style="color: red">Lorem Ipsum</p>
 </div>
@@ -55,6 +57,7 @@ Wir können das CSS auch in einen `<style></style>`-Tag schreiben.
 </style>
 <p>Lorem Ipsum</p>
 ```
+
 <div style="background-color: #fff; color: #000; font-family: serif; padding: 1rem; margin: 1rem 0rem; border-radius: 1rem; border-style: solid;">
     <style>
         p {
@@ -138,7 +141,8 @@ button {
 
 Manchmal wollen wir Styles nicht auf alle gleichen Elemente anwenden sondern nur auf bestimmte, die
 wir z.B. hervorheben wollen. Dafür können wir Class Selektoren brauchen. Wir weisen den HTML Elementen,
-die wir selektieren wollen eine Klasse zu, z.B. rot (`class="rot"`). Um diese nun in unserem CSS auszuwählen, schreiben wir vor die geschweiften Klammern den Klassennamen mit einem Punkt vor dran:
+die wir selektieren wollen eine Klasse zu, z.B. rot (`class="rot"`). Um diese nun in unserem CSS auszuwählen, schreiben
+wir vor die geschweiften Klammern den Klassennamen mit einem Punkt vor dran:
 
 ``` css
 .rot {
@@ -173,5 +177,5 @@ die wir selektieren wollen eine Klasse zu, z.B. rot (`class="rot"`). Um diese nu
 
 ## Weiterführende Links
 
- - [W3-Schools - CSS](https://www.w3schools.com/css/default.asp)
- - [mdn web docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [W3-Schools - CSS](https://www.w3schools.com/css/default.asp)
+- [mdn web docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
