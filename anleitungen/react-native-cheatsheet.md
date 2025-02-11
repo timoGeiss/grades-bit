@@ -1,4 +1,24 @@
-# Cheatsheet
+# React NativeCheatsheet
+
+## Inhaltsverzeichnis
+- [Setup](#setup)
+- [Kernkomponenten](#komponenten)
+- [APIs](#apis)
+---
+
+## Setup
+
+### Benötigte Pakete installieren 
+```bash
+npm install
+```
+
+### Entwicklungsserver starten
+```bash
+npm start
+```
+
+---
 
 ## Komponenten
 
@@ -83,3 +103,29 @@ Das Fenster wird nur angezeigt, wenn _istSichtbar_ auf 'true' gesetzt ist. _sich
     wennAbbrechenAngeklickt={() => {}}
     wennBesätigigenAngeklickt={noteLöschen}/>
 ```
+## APIs
+
+### Daten abrufen mit der Fetch API(Fortgeschritten)
+```javascript
+import React, { useEffect, useState } from 'react';
+import { View, Text } from 'react-native';
+
+const App = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.example.com/data')
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error));
+  }, []);
+
+  return (
+    <View>
+      <Text>{JSON.stringify(data)}</Text>
+    </View>
+  );
+};
+```
+
+---
