@@ -1,0 +1,49 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+#s
+# Expo
+.expo/
+.expo-shared/
+dist/
+web-build/
+.bundle/
+.expo-go/
+
+# Metro Bundler cache
+metro-cache/
+.cache/
+
+# iOS/Android build artifacts
+ios/
+android/
+*.log
+
+# macOS files
+.DS_Store
+
+# VS Code
+.vscode/
+.vscode/*
+
+# WebStorm / JetBrains
+.idea/
+*.iml
+*.iws
+out/
+.idea_modules/
+*.sublime-workspace
+
+# Git
+.git/
+.gitignore
+
+# Environment & secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
