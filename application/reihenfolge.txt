@@ -1,0 +1,87 @@
+1. Titel Fächer
+2. Liste Fächer
+     - Liste
+     - ListItem
+3. "Fach hinzufügen" Knopf
+4. Fach Hinzufüge Seite
+     - Titel
+     - Textfeld
+     - Knopf
+     - Validierung
+     - Datenbankaufruf
+5. Knöpfe in Komponent verwandeln
+     - "Fach hinzufügen" Knopf
+     - "Besätigen" Knopf
+
+6. Navigation Fach Detail Page
+     - onClick
+7. Fach Detail Page
+     - Titel
+         - Id auslesen
+         - Datenbankabfrage
+9. Delete Fach
+     - ask() / nicht Modal
+     - Datenbankaufruf
+10. Navigation Edit Fach Page
+11. Edit Fach Page
+     - Titel
+     - Textfeld
+         - Existenter Text auslesen
+     - Knöpfe
+         - Speichern
+             - Datenbankaurruf
+         - Abbrechen
+             - Navigation zurück
+12. Farbe Iconknopf von Schwarz auf Orange ändern
+
+13. Notenliste
+       - Notenliste
+       - NotenListItem
+14. Note hinzufüge Knopf
+       - Navgation auf Noten Hinzufüge Seite
+15. Note hinzufüge Seite
+       - Titel
+       - Eingabe: Titel der Prüfung (Text)
+       - Eingabe: Note (Zahl)
+       - Eingabe: Gewichtung (Zahl)
+       - "Bestätigen" Knopf
+       - Validierung
+       - Datenbankaufruf
+16. Note Detailansicht
+       - Existierende Daten laden
+       - Titel
+       - Eingabe: Titel der Prüfung (Text)
+       - Eingabe: Note (Zahl)
+       - Eingabe: Gewichtung (Zahl)
+       - "Bestätigen" Knopf
+       - Validierung
+       - Datenbankaufruf
+
+17. Durchschnitte
+       - Auf Fachdetail Page
+       - Auf Fachübersicht / Home Page
+
+Zusatz:
+18. Durchschnitte Färben
+19. Modal anstelle von ask/alert
+20. Wunschnote berechnen
+21. PDF Export
+      - Alle Fächer
+      - Ein Fach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
