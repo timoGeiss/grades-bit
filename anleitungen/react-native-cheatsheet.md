@@ -14,9 +14,9 @@
 npm install
 ```
 
-### Entwicklungsserver starten
+### App starten
 ```bash
-npx expo start
+npm start
 ```
 
 ---

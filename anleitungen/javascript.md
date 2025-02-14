@@ -205,7 +205,7 @@ Der Wert einer Variable kann inkrementiert (erhöht) werden mit dem Operator +=.
 ```js
 let x = 5; // x den Wert 5 zuweisen
 let y = 2; // y den Wert 2 zuweisen
-let y += x; // y den Wert von y + x zuweisen
+let y += x; // y den Wert von y + x zuweisen, also 7
 ```
 
 ### Dekrementieren
@@ -213,7 +213,7 @@ Der Wert einer Variable kann dekrementiert (verkleinert) werden mit dem Operator
 ```js
 let x = 5; // x den Wert 5 zuweisen
 let y = 2; // y den Wert 2 zuweisen
-let y -= x; // y den Wert von y - x zuweisen
+let y -= x; // y den Wert von y - x zuweisen, also -3
 ```
 
 ## Verzweigungen
@@ -261,10 +261,24 @@ persons.forEach((person)=> {
 
 ## Funktionen
 Code kann in eigene Funktionen ausgelagert werde, welche anschliessend aufgerufen werden können und meist einen Rückgabewert haben.
+Es gibt zwei Arten von Funktionen: normale Funktionen und Lambda-Funktionen, die beiden Arten von Funktion unterscheiden sich nur in der Schreibweise. Sie verhalten sich also gleich.
+
+### Normale Funktion
 ```js
 // Funktion, um das Produkt von p1 und p2 zu berechnen
 function myFunction(p1, p2) {
   return p1 * p2;
+}
+
+let result = myfunction(2, 4); // Funktion aufrufen und deren Resultat der Variable result zuweisen
+```
+
+### Lambda-Funktion
+```js
+// Funktion, um das Produkt von p1 und p2 zu berechnen
+// Man kann eine Funktion in eine Variable speichern, die Variable myFuntion enthält nun Code welcher ausgefüht wird, wenn die Funktion aufgerufen wird.
+const myFuntion = (p1, p2) => {
+    return p1 * p2
 }
 
 let result = myfunction(2, 4); // Funktion aufrufen und deren Resultat der Variable result zuweisen
