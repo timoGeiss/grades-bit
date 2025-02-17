@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Improved Styling">
+      <change afterPath="$PROJECT_DIR$/components/Balken.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Durchschnitt.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Durchschnitt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/FachListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/FachListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Listen/NotenListeItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Listen/NotenListeItem.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,22 +34,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Softwareschmiede/grades-bit-otherbranch/grades-bit/application/grades-bit&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Softwareschmiede\\grades-bit\\application\\grades-bit\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Softwareschmiede/grades-bit-otherbranch/grades-bit/application/grades-bit",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "ts.external.directory.path": "C:\\Users\\Softwareschmiede\\grades-bit-otherbranch\\grades-bit\\application\\grades-bit\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Softwareschmiede\grades-bit\application\grades-bit\components\Eingaben" />
@@ -83,7 +87,7 @@
       <workItem from="1738653044907" duration="20936000" />
       <workItem from="1739193485218" duration="780000" />
       <workItem from="1739526403113" duration="3909000" />
-      <workItem from="1739776008274" duration="2055000" />
+      <workItem from="1739776008274" duration="11180000" />
     </task>
     <task id="LOCAL-00001" summary="create page almost finished">
       <option name="closed" value="true" />

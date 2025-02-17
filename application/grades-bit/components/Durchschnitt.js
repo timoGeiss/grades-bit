@@ -1,4 +1,5 @@
 import {StyleSheet, Text, View} from "react-native";
+import Balken from "./Balken";
 
 export default function Durchschnitt({noten}) {
     function berechneNotenDurchschnitt() {
@@ -44,7 +45,7 @@ export default function Durchschnitt({noten}) {
         <View style={styles.container}>
             <Text style={styles.text}>Durchschnitt</Text>
             <Text style={[styles.text, styles.wert]}>{berechneNotenDurchschnitt()}</Text>
-            <View style={[styles.balken, {backgroundColor: erhalteFarbeNachNotenSchnitt(berechneNotenDurchschnitt())}]}><Text></Text></View>
+            <Balken wert={berechneNotenDurchschnitt()}/>
         </View>
     )
 }

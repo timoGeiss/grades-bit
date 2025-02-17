@@ -1,5 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {router} from 'expo-router';
+import Balken from "../Balken";
 
 export default function NotenListeItem({note}) {
     function navigiereZuDetailAnsicht() {
@@ -28,7 +29,7 @@ export default function NotenListeItem({note}) {
         <TouchableOpacity onPress={navigiereZuDetailAnsicht} style={styles.container}>
             <Text style={[styles.text, styles.titel]} numberOfLines={1} ellipsizeMode={"tail"}>{note.titel}</Text>
             <Text style={[styles.text, styles.wert]}>{note.wert}</Text>
-            <View style={[styles.balken, {backgroundColor: erhalteFarbeNachNotenWert()}]}><Text></Text></View>
+            <Balken wert={note.wert}/>
         </TouchableOpacity>
     )
 }

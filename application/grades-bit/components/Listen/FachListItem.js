@@ -2,6 +2,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {router} from 'expo-router';
 import {useEffect, useState} from "react";
 import {getNotenByFachId} from "../../database";
+import Balken from "../Balken";
 
 export default function FachListItem({fach}) {
     const [noten, notenSetzen] = useState([]);
@@ -67,8 +68,7 @@ export default function FachListItem({fach}) {
             <TouchableOpacity onPress={navigiereZuDetailAnsicht} style={styles.container}>
                 <Text style={[styles.text, styles.titel]} numberOfLines={1} ellipsizeMode={"tail"}>{fach.name}</Text>
                 <Text style={styles.schnitt}>{berechneNotenDurchschnitt()}</Text>
-                <View
-                    style={[styles.balken, {backgroundColor: erhalteFarbeNachNotenSchnitt(berechneNotenDurchschnitt())}]}><Text></Text></View>
+                <Balken wert={berechneNotenDurchschnitt()}/>
             </TouchableOpacity>
         </View>
     )
