@@ -1,21 +1,18 @@
-1. Titel Fächer
-2. Liste Fächer
-     - Liste
-     - ListItem
-3. "Fach hinzufügen" Knopf
-4. Fach Hinzufüge Seite
-     - Titel
-     - Textfeld
-     - Knopf
-     - Validierung
-     - Datenbankaufruf
-5. Knöpfe in Komponent verwandeln
-     - "Fach hinzufügen" Knopf
-     - "Besätigen" Knopf
-
-6. Navigation Fach Detail Page
-     - onClick
-7. Fach Detail Page
+1. Titel Fächer				Done
+2. "Fach hinzufügen" Knopf		Done
+3. Fach Hinzufüge Seite			Done
+     - Titel				Done
+     - Textfeld				Done
+     - Knopf				Done
+     - Validierung			Done
+     - Datenbankaufruf			Done
+4. Liste Fächer				Done
+     - Liste				Done
+     - ListItem				Done
+5. Navigation Fach Detail Page		Done
+     - TouchableOpacity			Done
+     - onClick				Done
+6. Fach Detail Page
      - Titel
          - Id auslesen
          - Datenbankabfrage

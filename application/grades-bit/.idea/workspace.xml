@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Improved Styling" />
+    <list default="true" id="e5281370-9ae1-446f-b4ae-8319c43c887e" name="Changes" comment="Improved Styling">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +35,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Softwareschmiede/grades-bit/application/grades-bit/components/Eingaben&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Softwareschmiede/grades-bit-otherbranch/grades-bit/application/grades-bit&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -80,6 +82,8 @@
       <workItem from="1738045695309" duration="11790000" />
       <workItem from="1738653044907" duration="20936000" />
       <workItem from="1739193485218" duration="780000" />
+      <workItem from="1739526403113" duration="3909000" />
+      <workItem from="1739776008274" duration="2055000" />
     </task>
     <task id="LOCAL-00001" summary="create page almost finished">
       <option name="closed" value="true" />
