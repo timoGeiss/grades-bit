@@ -6,6 +6,7 @@
   - [Aufbau](#aufbau)
   - [CSS einbinden](#css-einbinden)
   - [Weiterführende Links](#weiterführende-links)
+  - [Wichtige CSS Eigenschaften](#wichtige-css-eingenschaften)
 
 <div style="page-break-after: always;"></div>
 
@@ -29,6 +30,10 @@ Wir geben einer Komponente mit Style den Idendifikator mit, damit weiss das CSS 
 <View style={styles.identifikator}>
 </View>
 ```
+
+## Wichtige CSS Eingenschaften
+- ```color``` ändert die Text Farbe als Wert kann z.B  ```"green"```oder auch Hexadezimale werte für Farben verwendet werden ```"#00FF00" ```
+- ```font-size``` setzt die Schriftgrösse als wert wird eine Zahl in Pixel angegeben z.B ```"12px"```
 
 ## Weiterführende Links
 

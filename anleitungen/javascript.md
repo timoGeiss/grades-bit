@@ -225,10 +225,27 @@ if (x == 5) { // Unter der Bedingung das x gleich 5 ist, wird x um 5 erhöht
   x += 5;
 } else if (x == 0){ // Unter der Bedingung das x gleich 0 ist, wird x um 5 verkleinert
   x -= 5;
-} else { // Unter der Bedingung das x gleich 1 ist, wird x um 1 erhöht
+} else { // Wenn x nicht den Wert 0 oder den wert 5 hat wird x um 1 erhöht
   x += 1;
 }
 ```
+### Ternary Operator
+In unserem Code wird zur Abkürzung auch der Ternary Operator verwendet.
+```js
+let x = 5;
+x == 5 ? x += 5 : x += 1; // Wenn x gleich 5 ist wird x um 5 erhöt sonst um 1 erhöt
+// Das gleiche mit If else
+let x = 5;
+if(x == 5){
+  x += 5;
+}
+else{
+  x += 1;
+}
+```
+Vor dem ? steht die Bedingung wenn die Bedingung wahr ist wird der Code hinter dem ? ausgeführt sonst der Code hinter dem :
+Der Ternary Operator macht das gleiche wie eine if else Verzweigung einfach kürzer.
+
 
 ## Schleifen
 ### For-Schleife

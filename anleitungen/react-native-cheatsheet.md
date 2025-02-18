@@ -3,8 +3,8 @@
 ## Inhaltsverzeichnis
 - [Setup](#setup)
 - [Kernkomponenten](#komponenten)
-- [Zustandsverwaltung](#zustandsverwaltung)
-- [APIs](#apis)
+- [Zustandsverwaltung(Fortgeschritten)](#zustandsverwaltung)
+- [APIs(Fotgeschritten)](#apis)
 ---
 
 ## Setup
