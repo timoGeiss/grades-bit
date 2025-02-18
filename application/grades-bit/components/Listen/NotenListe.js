@@ -3,21 +3,8 @@ import TrennLinie from "../TrennLinie";
 import NotenListeItem from "./NotenListeItem";
 
 export default function NotenListe({noten}) {
-    function renderItem({item}) {
-        return <NotenListeItem note={item}/>
-    }
-
     return (
         <View>
-            {noten.length > 0 ?
-                <FlatList
-                    data={noten}
-                    renderItem={renderItem}
-                    keyExtractor={(note, index) => index.toString()}
-                    ItemSeparatorComponent={TrennLinie}
-                />
-                :
-                <Text style={styles.keineGefunden}>Keine Noten vorhanden!</Text>}
         </View>
     );
 }

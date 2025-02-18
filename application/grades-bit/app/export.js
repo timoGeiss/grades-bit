@@ -7,26 +7,16 @@ import {generatePDF} from "../lib/PdfGenerator";
 import Knopf from "../components/Eingaben/Knopf";
 
 export default function Export() {
-    const [fächer, fächerSetzen] = useState([]);
     const [option, optionSetzen] = useState("0");
-
-    useEffect(() => {
-        const getData = async () => {
-            const daten = await getAllFaecher()
-            fächerSetzen(daten);
-        }
-        getData();
-    }, []);
 
     if (!fächer) {
         return null;
     }
 
     return (
-        <>
+        <View>
             <StatusBar/>
             <View style={styles.container}>
-                <Text style={styles.bigText}>Was möchtest du exportieren?</Text>
                 <Picker
                     selectedValue={option}
                     onValueChange={(itemValue) => {
@@ -40,10 +30,8 @@ export default function Export() {
                         )
                     })}
                 </Picker>
-
-                <Knopf text={"PDF Erstellen"} beimKlicken={() => generatePDF(option)}/>
             </View>
-        </>
+        </View>
     )
 }
 

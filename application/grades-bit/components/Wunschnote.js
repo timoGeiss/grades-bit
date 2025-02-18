@@ -8,28 +8,9 @@ import IconKnopf from "./Eingaben/IconKnopf";
 import OkFenster from "./Eingaben/OkFenster";
 
 export default function Wunschnote({fachId}) {
-    const [noten, notenSetzen] = useState([]);
-    const [wunschnote, wunschnoteSetzen] = useState(null);
-    const [benötigteNote, benötigteNoteSetzen] = useState("N/A");
-    const [anzahlBenötigteNote, anzahlBenötigteNoteSetzen] = useState("N/A");
-    const [istSichtbar, istSichtbarSetzen] = useState(false);
-    const [okFensterTitel, okFensterTitelSetzen] = useState("Titel");
-    const [okFensterText, okFensterTextSetzen] = useState("Text");
+    // useStates Hier
 
-    useFocusEffect(
-        useCallback(() => {
-            if (!fachId) {
-                return
-            }
-
-            async function NotenLaden() {
-                const data = await getNotenByFachId(fachId)
-                notenSetzen(data)
-            }
-
-            NotenLaden()
-        }, [fachId])
-    );
+    // useFocusEffect hier welches die Noten für das Fach lädt
 
     function benötigteNoteBerechnen() {
         if (!wunschnote) {
@@ -83,36 +64,29 @@ export default function Wunschnote({fachId}) {
     }
 
     function okFensterÖffnen(titel, text) {
-        okFensterTitelSetzen(titel)
-        okFensterTextSetzen(text)
-        istSichtbarSetzen(true)
+        // Setze Titel
+        // Setze Text
+        // Öffne Fenster
     }
 
     return (
         <View style={styles.container}>
-            <OkFenster titel={okFensterTitel} text={okFensterText} istSichtbar={istSichtbar}
-                       sichtbarkeitSetzen={istSichtbarSetzen} wennOkAngeklickt={() => {
-            }}/>
+            {/* OkFenster */}
             <View style={styles.eingabeContainer}>
                 <View style={styles.wunschnote}>
-                    <Zahlenfeld
-                        titel={"Wunschnote"}
-                        inhalt={wunschnote}
-                        wennInhaltVerändertWird={(neuerInhalt) => wunschnoteSetzen(neuerInhalt)}
-                        platzhalter={"6"}
-                    />
+                    {/* Zahlenfeld */}
                 </View>
                 <View style={styles.iconTaschenrechner}>
-                    <IconKnopf beimKlicken={benötigteNoteBerechnen} icon={"calculator-outline"}/>
+                    {/* Knopf */}
                 </View>
             </View>
 
             <View style={styles.resultatContainer}>
                 <View style={styles.benötigteNote}>
-                    <AnzeigeFeld titel={"Benötigte Note"} inhalt={benötigteNote}/>
+                    {/* Anzeigefeld */}
                 </View>
                 <View style={styles.anzahl}>
-                    <AnzeigeFeld titel={"Anzahl"} inhalt={anzahlBenötigteNote}/>
+                    {/* Anzeigefeld */}
                 </View>
             </View>
         </View>
