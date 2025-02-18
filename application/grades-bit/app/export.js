@@ -32,7 +32,6 @@ export default function Export() {
                     onValueChange={(itemValue) => {
                         optionSetzen(itemValue)
                     }}
-                    style={styles.picker}
                 >
                     <Picker.Item label="Alle Fächer" value={"0"}/>
                     {fächer.map((item) => {
