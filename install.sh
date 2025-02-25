@@ -25,6 +25,3 @@ rm -rf .git
 
 cd application
 cd grades-bit
-
-# Run npm install
-npm install
