@@ -25,3 +25,5 @@ rm -rf .git
 
 cd application
 cd grades-bit
+
+code .
