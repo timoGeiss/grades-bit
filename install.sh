@@ -23,5 +23,8 @@ git checkout $BRANCH_NAME && git pull origin $BRANCH_NAME
 # Delete .git folder before running npm install
 rm -rf .git
 
+cd application
+cd grades-bit
+
 # Run npm install
 npm install
