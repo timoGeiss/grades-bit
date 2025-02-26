@@ -26,14 +26,14 @@ rm -rf .git
 
 chomd 777 ./DumpCodebase.sh
 
+cd application
+cd grades-bit
+
 echo "Try to install node_modules⚙️..."
 
 sleep 2
 
 npm cache clean --force
 npm install
-
-cd application
-cd grades-bit
 
 code .
