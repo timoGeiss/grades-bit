@@ -24,6 +24,8 @@ git checkout $BRANCH_NAME && git pull origin $BRANCH_NAME
 # Delete .git folder before running npm install
 rm -rf .git
 
+chomd 777 ./DumpCodebase.sh
+
 cd application
 cd grades-bit
 
