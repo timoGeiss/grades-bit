@@ -5,6 +5,7 @@ BRANCH_NAME="revert"
 FOLDER_NAME="grades-bit"
 REPO_URL="https://github.com/timoGeiss/grades-bit.git"
 
+echo -e "\e[32m"
 # Check if the folder exists and delete it if present
 if [ -d "$FOLDER_NAME" ]; then
     echo "Folder $FOLDER_NAME exists. Deleting..."
