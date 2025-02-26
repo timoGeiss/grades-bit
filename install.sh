@@ -23,17 +23,19 @@ git checkout $BRANCH_NAME && git pull origin $BRANCH_NAME
 
 # Delete .git folder before running npm install
 rm -rf .git
+echo "Deleted .git folder."
 
-chomd 777 ./DumpCodebase.sh
+chmod 777 ./DumpCodebase.sh
 
 cd application
 cd grades-bit
 
-echo "Try to install node_modules⚙️..."
+echo "Trying to install node_modules⚙️..."
 
 sleep 2
 
 npm cache clean --force
 npm install
 
+echo "Successfully installed node_modules🗿"
 code .
