@@ -31,6 +31,8 @@ chmod 777 ./DumpCodebase.sh
 echo "Curling nvm..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
+sleep 1
+
 source ~/.bashrc
 
 echo "Installing node 18"
