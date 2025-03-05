@@ -27,6 +27,18 @@ echo "Deleted .git folder."
 
 chmod 777 ./DumpCodebase.sh
 
+# Installing nvm
+echo "Curling nvm..."
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+source ~/.bashrc
+
+echo "Installing node 18"
+nvm install 18
+nvm use 18
+
+echo "Successfully installed nvm and node 18."
+
 cd application
 cd grades-bit
 
@@ -38,4 +50,9 @@ npm cache clean --force
 npm install
 
 echo "Successfully installed node_modules🗿"
+
+#Tries to resolve possible version conflicts
+echo "Upgrading expo packages..."
+npx expo install --fix
+
 code .
