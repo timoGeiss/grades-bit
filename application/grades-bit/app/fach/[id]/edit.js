@@ -17,43 +17,26 @@ export default function Edit() {
         }
 
         async function FachLaden() {
-            const data = await getFachById(id);
-            fachSetzen(data);
+
         }
         FachLaden()
     }, [id]);
 
     async function formularBestätigt() {
-        if (fach.name.length < 2) {
-            errorSetzen("Name ist zu kurz")
-        }
-        else if (fach.name.length > 20) {
-            errorSetzen("Name ist zu lang")
-        }
-        else {
-            await updateFach(id, fach.name)
-            router.back()
-        }
+
     }
 
     function abbrechen() {
-        router.back()
+        // Befehl wurde bereits beim bestätigen verwendet
     }
 
     return (
         <View style={styles.container}>
             <StatusBar/>
-            <Text style={styles.bigText}>Hier kannst du das Fach bearbeiten.</Text>
-            <Textfeld
-                titel={"Name des Fachs"}
-                inhalt={fach.name}
-                wennInhaltVerändertWird={(neuerInhalt) => fachSetzen({...fach, name: neuerInhalt})}
-                platzhalter={"Neuer Name"}
-            />
+            <Text style={styles.bigText}>Beispieltext</Text>
 
             {error ? <Text style={styles.error}>{error}</Text> : null}
-            <Knopf beimKlicken={formularBestätigt} text={"Speichern"}/>
-            <Knopf beimKlicken={abbrechen} text={"Abbrechen"}/>
+
         </View>
     )
 }

@@ -25,17 +25,9 @@ export default function FachErstellen() {
 
     return (
         <View style={styles.container}>
-            <StatusBar/>
-            <Text style={styles.bigText}>Welches Fach möchtest du hinzufügen?</Text>
-            <Textfeld
-                titel={"Name des Fachs"}
-                inhalt={name}
-                wennInhaltVerändertWird={(neuerInhalt) => nameSetzen(neuerInhalt)}
-                platzhalter={"Mathematik"}
-            />
 
             {error ? <Text style={styles.error}>{error}</Text> : null}
-            <Knopf beimKlicken={formularBestätigt} text={"Bestätigen"}/>
+
         </View>
     )
 }
