@@ -39,6 +39,10 @@ export default function Index() {
     function frageLöschen() {
     }
 
+    function zumBearbeiten() {
+        router.push(`/fach/${id}/edit`)
+    }
+
     return (
         <View style={styles.container}>
 
