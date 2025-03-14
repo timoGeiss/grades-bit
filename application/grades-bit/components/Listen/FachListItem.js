@@ -15,7 +15,7 @@ export default function FachListItem({fach}) {
 
     return (
         <View>
-                <Text style={[styles.text, styles.titel]} numberOfLines={1} ellipsizeMode={"tail"}>{fach.name}</Text>
+            <Text style={[styles.text, styles.titel]} numberOfLines={1} ellipsizeMode={"tail"}>{fach.name}</Text>
         </View>
     )
 }
