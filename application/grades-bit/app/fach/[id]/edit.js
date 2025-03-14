@@ -27,7 +27,8 @@ export default function Edit() {
     }
 
     function abbrechen() {
-        // Befehl wurde bereits beim bestätigen verwendet
+        // Navigiere hier zurück, ohne etwas zu machen.
+        // Befehl wurde bereits beim bestätigen verwendet.
     }
 
     return (
