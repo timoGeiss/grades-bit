@@ -5,13 +5,7 @@ import {getNotenByFachId} from "../../database";
 
 export default function FachListItem({fach}) {
 
-    useEffect(() => {
-        if (!fach) {
-            return
-        }
-    }, [fach]);
-
-
+    
 
     return (
         <View>
