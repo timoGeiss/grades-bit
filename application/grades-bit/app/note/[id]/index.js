@@ -10,7 +10,6 @@ import {StatusBar} from "expo-status-bar";
 
 export default function Index() {
     const {id} = useLocalSearchParams()
-
     const [note, noteSetzen] = useState(null);
     const [error, errorSetzen] = useState(null)
     const [istSichtbar, sichtbarkeitSetzen] = useState(false)
@@ -22,13 +21,12 @@ export default function Index() {
                 return
             }
 
-            async function getNote() {
-                const daten = await getNoteById(id)
-                noteSetzen(daten[0])
-                console.log(daten)
+            async function LadeNote() {
+                const data = await getNoteById(id)
+                noteSetzen(data)
             }
 
-            getNote()
+            LadeNote()
         }, [id])
     );
 
@@ -42,25 +40,8 @@ export default function Index() {
     }
 
     async function formularBestätigt() {
-        if (note.titel.length < 2) {
-            errorSetzen("Titel ist zu kurz")
-            return
-        }
-        if (note.titel.length > 20) {
-            errorSetzen("Titel ist zu lang")
-        }
-        if (note.wert < 1) {
-            errorSetzen("Note zu klein, min: 1")
-            return
-        }
-        if (note.wert > 6) {
-            errorSetzen("Note zu gross, max: 6")
-            return
-        }
-        if (note.gewichtung <= 0) {
-            errorSetzen("Gewichtung muss grösser 0 sein")
-            return
-        }
+        // Baue hier die Validierung des Titels, der Note und der Gewichtung ein.
+        // Insgesamt 5-mal If
 
         const überprüfteNote = Number(note.wert)
         if (isNaN(überprüfteNote)) {
@@ -75,7 +56,8 @@ export default function Index() {
         }
 
         await updateNote(id, note.titel, überprüfteNote, überprüfteGewichtung)
-        router.back()
+
+        // Navigiere hier zurück (Das hast du schon einmal auf der Notenerstellseite gemacht)
     }
 
     if (!note) {

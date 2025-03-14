@@ -83,7 +83,7 @@ export async function getNoteById(id) {
     } finally {
         await selectProjectsStatement.finalizeAsync();
     }
-    return result;
+    return result[0];
 }
 
 export async function getAllNoten() {

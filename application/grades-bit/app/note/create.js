@@ -33,7 +33,7 @@ export default function NoteErstellen() {
 
         await insertIntoNote(id, titel, überprüfteNote, überprüfteGewichtung);
 
-        // Navigiere hier zurück (Das hast du schonmal auf der Facherstellungsseite gamcht)
+        // Navigiere hier zurück (Das hast du schon einmal auf der Facherstellungsseite gemacht)
     }
 
     return (
