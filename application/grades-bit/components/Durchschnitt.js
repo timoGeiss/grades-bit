@@ -23,21 +23,7 @@ export default function Durchschnitt({noten}) {
     }
 
     function erhalteFarbeNachNotenSchnitt(durchschnitt) {
-        if (durchschnitt >= 5.5) {
-            return "green"
-        }
-        if (durchschnitt >= 5 && durchschnitt < 5.5) {
-            return "lightgreen"
-        }
-        if (durchschnitt >= 4.5 && durchschnitt < 5) {
-            return "yellow"
-        }
-        if (durchschnitt >= 4 && durchschnitt < 4.5) {
-            return "orange"
-        }
-        if (durchschnitt < 4) {
-            return "red"
-        }
+        // Farbstufen einfügen
     }
 
     return (
