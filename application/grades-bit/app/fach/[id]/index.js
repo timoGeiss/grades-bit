@@ -28,15 +28,15 @@ export default function Index() {
         }, [id])
     );
 
-    function frageLöschen() {
-    }
-
     async function fachLöschen() {
         const noten = await getNotenByFachId(id)
         for (const note of noten) {
             await removeNote(note.id)
         }
         await removeFach(id)
+    }
+
+    function frageLöschen() {
     }
 
     return (
