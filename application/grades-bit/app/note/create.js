@@ -16,25 +16,8 @@ export default function NoteErstellen() {
     const [error, errorSetzen] = useState(null)
 
     async function formularBestätigt() {
-        if (titel.length < 2) {
-            errorSetzen("Titel ist zu kurz")
-            return
-        }
-        if (titel.length > 20) {
-            errorSetzen("Titel ist zu lang")
-        }
-        if (note < 1) {
-            errorSetzen("Note zu klein, min: 1")
-            return
-        }
-        if (note > 6) {
-            errorSetzen("Note zu gross, max: 6")
-            return
-        }
-        if (gewichtung <= 0) {
-            errorSetzen("Gewichtung muss grösser 0 sein")
-            return
-        }
+        // Baue hier die Validierung des Titels, der Note und der Gewichtung ein.
+        // Insgesamt 5-mal If
 
         const überprüfteNote = Number(note)
         if (isNaN(überprüfteNote)) {
@@ -49,7 +32,8 @@ export default function NoteErstellen() {
         }
 
         await insertIntoNote(id, titel, überprüfteNote, überprüfteGewichtung);
-        router.back()
+
+        // Navigiere hier zurück (Das hast du schonmal auf der Facherstellungsseite gamcht)
     }
 
     return (
@@ -68,12 +52,8 @@ export default function NoteErstellen() {
                 wennInhaltVerändertWird={(neuerInhalt) => noteSetzen(neuerInhalt)}
                 platzhalter={"4"}
             />
-            <Zahlenfeld
-                titel={"Gewichtung"}
-                inhalt={gewichtung}
-                wennInhaltVerändertWird={(neuerInhalt) => gewichtungSetzen(neuerInhalt)}
-                platzhalter={"1"}
-            />
+            {/*Hier brauchst du noch ein Zahlenfeld für die Gewichtung.
+            Überlege selbst, wie du dies einbauen musst.*/}
 
             {error ? <Text style={styles.error}>{error}</Text> : null}
             <Knopf beimKlicken={formularBestätigt} text={"Bestätigen"}/>
