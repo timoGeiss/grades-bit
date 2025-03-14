@@ -15,7 +15,6 @@ export default function Index() {
     const {id} = useLocalSearchParams()
     const [istSichtbar, sichtbarkeitSetzen] = useState(false)
 
-
     useFocusEffect(
         useCallback(() => {
             if (!id) {
@@ -30,7 +29,6 @@ export default function Index() {
     );
 
     function frageLöschen() {
-        sichtbarkeitSetzen(true)
     }
 
     async function fachLöschen() {

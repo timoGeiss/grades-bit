@@ -5,7 +5,7 @@ import {getNotenByFachId} from "../../database";
 
 export default function FachListItem({fach}) {
 
-    
+
 
     return (
         <View>
