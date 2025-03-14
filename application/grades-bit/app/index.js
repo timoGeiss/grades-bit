@@ -13,9 +13,7 @@ export default function index() {
 
     useFocusEffect(
         useCallback(() => {
-
         }, [])
-
     );
 
     return (
