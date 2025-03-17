@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define variables
-BRANCH_NAME="revert"
+BRANCH_NAME="revert-easy"
 FOLDER_NAME="grades-bit"
 REPO_URL="https://github.com/timoGeiss/grades-bit.git"
 
