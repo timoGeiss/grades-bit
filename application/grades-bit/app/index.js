@@ -17,7 +17,6 @@ export default function index() {
     );
 
 
-
     return (
         <View style={styles.container}>
                 <View style={styles.titel}>
