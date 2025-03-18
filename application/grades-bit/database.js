@@ -1,6 +1,5 @@
 import * as SQLite from 'expo-sqlite';
 
-
 export async function main() {
     //Creates local SQLite database named dbFreelanceTracker
     const db = await SQLite.openDatabaseAsync('gradedb5');
@@ -24,8 +23,51 @@ export async function main() {
 				"name" TEXT NOT NULL,
 				PRIMARY KEY("id" AUTOINCREMENT)
 			);
+			
+			CREATE TABLE IF NOT EXISTS "key" (
+			    value TEXT NOT NULL
+			);
 	`);
+
+    let result;
+    const selectKeyStatement = await db.prepareAsync('SELECT * FROM key');
+    try {
+        result = await db.getAllAsync("SELECT * FROM key")
+    } catch (e) {
+        console.log(e)
+    } finally {
+        await selectKeyStatement.finalizeAsync()
+    }
+
+    if (result.length < 1) {
+        const value = Math.random().toString(36);
+        const insertProjectStatement = await db.prepareAsync(
+            'INSERT INTO key (value) VALUES ($value)'
+        );
+        try {
+            await insertProjectStatement.executeAsync({
+                $value: value
+            });
+        } finally {
+            await insertProjectStatement.finalizeAsync();
+        }
+    }
+
     return db;
+}
+
+export async function getSecretKey() {
+    const db = await main();
+    let result;
+    const selectProjectsStatement = await db.prepareAsync('SELECT * FROM key');
+    try {
+        result = await db.getAllAsync("SELECT * FROM key");
+    } catch (e) {
+        console.log(e);
+    } finally {
+        await selectProjectsStatement.finalizeAsync();
+    }
+    return result[0].value;
 }
 
 export async function getAllFaecher() {
@@ -83,7 +125,7 @@ export async function getNoteById(id) {
     } finally {
         await selectProjectsStatement.finalizeAsync();
     }
-    return result;
+    return result[0];
 }
 
 export async function getAllNoten() {
@@ -213,12 +255,24 @@ export async function removeNote(id) {
     return result;
 }
 
-export async function getAlles() {
+export async function getAlles(id) {
     const db = await main();
     let result;
     const selectProjectsStatement = await db.prepareAsync('SELECT * FROM fach');
+    const selectAll = "SELECT * FROM fach JOIN note ON note.fach_id = fach.id"
+    if (id !== 0) {
+        try {
+            result = await db.getAllAsync(selectAll + " WHERE fach.id = " + id);
+        } catch (e) {
+            console.log(e);
+        } finally {
+            await selectProjectsStatement.finalizeAsync();
+        }
+        return result;
+    }
+
     try {
-        result = await db.getAllAsync("SELECT * FROM fach JOIN note ON note.fach_id = fach.id");
+        result = await db.getAllAsync(selectAll);
     } catch (e) {
         console.log(e);
     } finally {

@@ -10,11 +10,11 @@ export default function _layout() {
             headerShown: false,
         }}/>
 
-        <Stack.Screen name={"edit"} options={{
-            title: "Fach Bearbeiten", headerStyle: {
-                backgroundColor: "orange",
+        {/*<Stack.Screen name={"edit"} options={{*/}
+        {/*    title: "Fach Bearbeiten", headerStyle: {*/}
+        {/*        backgroundColor: "orange",*/}
 
-            }, headerTintColor: "black"
-        }}/>
+        {/*    }, headerTintColor: "black"*/}
+        {/*}}/>*/}
     </Stack>)
 }
