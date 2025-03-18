@@ -255,12 +255,24 @@ export async function removeNote(id) {
     return result;
 }
 
-export async function getAlles() {
+export async function getAlles(id) {
     const db = await main();
     let result;
     const selectProjectsStatement = await db.prepareAsync('SELECT * FROM fach');
+    const selectAll = "SELECT * FROM fach JOIN note ON note.fach_id = fach.id"
+    if (id !== 0) {
+        try {
+            result = await db.getAllAsync(selectAll + " WHERE fach.id = " + id);
+        } catch (e) {
+            console.log(e);
+        } finally {
+            await selectProjectsStatement.finalizeAsync();
+        }
+        return result;
+    }
+
     try {
-        result = await db.getAllAsync("SELECT * FROM fach JOIN note ON note.fach_id = fach.id");
+        result = await db.getAllAsync(selectAll);
     } catch (e) {
         console.log(e);
     } finally {

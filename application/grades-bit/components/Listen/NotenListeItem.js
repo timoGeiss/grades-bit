@@ -5,7 +5,7 @@ import {useState} from "react";
 export default function NotenListeItem({note}) {
     function navigiereZuDetailAnsicht() {
         // Navigiere hier zur Noten Detailansicht
-        // Pfad: note/id
+        // Pfad: `note/${note.id}`
     }
 
     return (
