@@ -1,7 +1,5 @@
 # Schnupperprojekt BIT 2025
 
-Bitte Änderungen am Projekt auf dem develop-branch verschieben 
+-- Runs under MIT Licence --
 
-Main-Branch - fertige MVP-Versionen
-
-develop-Branch - funktionierende Änderungen (Pull Request auf main)
+You are allowed to use, derive and change the Projects Licence.
