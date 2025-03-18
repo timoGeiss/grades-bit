@@ -40,7 +40,7 @@ export default function Export() {
                     })}
                 </Picker>
 
-                <TouchableHighlight style={styles.button} onPress={() => {generatePDF(optionen)}}>
+                <TouchableHighlight style={styles.button} onPress={() => {}}>
                     <Text style={styles.text}>PDF Erstellen</Text>
                 </TouchableHighlight>
             </View>
