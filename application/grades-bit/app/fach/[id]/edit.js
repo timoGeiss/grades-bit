@@ -27,7 +27,7 @@ export default function Edit() {
     }
 
     function abbrechen() {
-        // Navigiere hier zurück, ohne etwas zu machen.
+        // TODO: Navigiere hier zurück, ohne etwas zu machen.
         // Befehl wurde bereits beim bestätigen verwendet.
     }
 

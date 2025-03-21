@@ -40,7 +40,7 @@ export default function Index() {
     }
 
     async function formularBestätigt() {
-        // Baue hier die Validierung des Titels, der Note und der Gewichtung ein.
+        // TODO: Baue hier die Validierung des Titels, der Note und der Gewichtung ein.
         // Insgesamt 5-mal If
 
         const überprüfteNote = Number(note.wert)
@@ -57,7 +57,7 @@ export default function Index() {
 
         await updateNote(id, note.titel, überprüfteNote, überprüfteGewichtung)
 
-        // Navigiere hier zurück (Das hast du schon einmal auf der Notenerstellseite gemacht)
+        // TODO: Navigiere hier zurück (Das hast du schon einmal auf der Notenerstellseite gemacht)
     }
 
     if (!note) {

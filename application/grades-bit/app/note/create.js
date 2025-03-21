@@ -16,7 +16,7 @@ export default function NoteErstellen() {
     const [error, errorSetzen] = useState(null)
 
     async function formularBestätigt() {
-        // Baue hier die Validierung des Titels, der Note und der Gewichtung ein.
+        // TODO: Baue hier die Validierung des Titels, der Note und der Gewichtung ein.
         // Insgesamt 5-mal If
 
         const überprüfteNote = Number(note)
@@ -33,7 +33,7 @@ export default function NoteErstellen() {
 
         await insertIntoNote(id, titel, überprüfteNote, überprüfteGewichtung);
 
-        // Navigiere hier zurück (Das hast du schon einmal auf der Facherstellungsseite gemacht)
+        // TODO: Navigiere hier zurück (Das hast du schon einmal auf der Facherstellungsseite gemacht)
     }
 
     return (
@@ -52,8 +52,8 @@ export default function NoteErstellen() {
                 wennInhaltVerändertWird={(neuerInhalt) => noteSetzen(neuerInhalt)}
                 platzhalter={"4"}
             />
-            {/*Hier brauchst du noch ein Zahlenfeld für die Gewichtung.
-            Überlege selbst, wie du dies einbauen musst.*/}
+            {/* TODO: Hier brauchst du noch ein Zahlenfeld für die Gewichtung.
+                      Überlege selbst, wie du dies einbauen musst.*/}
 
             {error ? <Text style={styles.error}>{error}</Text> : null}
             <Knopf beimKlicken={formularBestätigt} text={"Bestätigen"}/>

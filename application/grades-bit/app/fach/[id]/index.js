@@ -52,8 +52,7 @@ export default function Index() {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 8,
-        // height: Dimensions.get("window").height,
+        padding: 8
     },
     icons: {
         display: "flex",

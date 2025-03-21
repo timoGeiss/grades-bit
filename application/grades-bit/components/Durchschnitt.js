@@ -23,7 +23,7 @@ export default function Durchschnitt({noten}) {
     }
 
     function erhalteFarbeNachNotenSchnitt(durchschnitt) {
-        // Farbstufen einfügen
+        // TODO: Farbstufen einfügen
     }
 
     return (
