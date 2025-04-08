@@ -46,7 +46,7 @@ export default function Index() {
         router.push(`/fach/${id}/edit`)
     }
 
-    function frageLöschen() {
+    function frageObLöschen() {
         sichtbarkeitSetzen(true)
     }
 
@@ -67,15 +67,14 @@ export default function Index() {
                 titel={"Löschung Bestätigen"}
                 istSichtbar={istSichtbar}
                 sichtbarkeitSetzen={sichtbarkeitSetzen}
-                wennAbbrechenAngeklickt={() => {
-                }}
+                wennAbbrechenAngeklickt={() => {}}
                 wennBesätigigenAngeklickt={fachLöschen}/>
 
             <View style={styles.titleBar}>
                 <Text style={styles.titel} numberOfLines={1}>{fach.name}</Text>
                 <View style={styles.icons}>
                     <IconKnopf beimKlicken={zumBearbeiten} icon={"pencil"}/>
-                    <IconKnopf beimKlicken={frageLöschen} icon={"trash"}/>
+                    <IconKnopf beimKlicken={frageObLöschen} icon={"trash"}/>
                 </View>
             </View>
 

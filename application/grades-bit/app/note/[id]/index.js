@@ -24,14 +24,14 @@ export default function Index() {
 
             async function getNote() {
                 const daten = await getNoteById(id)
-                noteSetzen(daten)
+                noteSetzen(daten[0])
             }
 
             getNote()
         }, [id])
     );
 
-    async function frageLöschen() {
+    async function frageObLöschen() {
         sichtbarkeitSetzen(true)
     }
 
@@ -89,8 +89,7 @@ export default function Index() {
                 titel={"Löschung Bestätigen"}
                 istSichtbar={istSichtbar}
                 sichtbarkeitSetzen={sichtbarkeitSetzen}
-                wennAbbrechenAngeklickt={() => {
-                }}
+                wennAbbrechenAngeklickt={() => {}}
                 wennBesätigigenAngeklickt={noteLöschen}/>
 
             <Text style={styles.bigText}>Was für eine Note möchtests du erstellen?</Text>
@@ -117,7 +116,7 @@ export default function Index() {
             <Knopf beimKlicken={formularBestätigt} text={"Bestätigen"}/>
             <View style={styles.löschen}>
                 <Text style={styles.bigText}>Prüfung Löschen?</Text>
-                <Knopf beimKlicken={frageLöschen} text={"Löschen"}/>
+                <Knopf beimKlicken={frageObLöschen} text={"Löschen"}/>
             </View>
         </View>
     )
