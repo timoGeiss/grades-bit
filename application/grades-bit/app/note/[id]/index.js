@@ -30,7 +30,7 @@ export default function Index() {
         }, [id])
     );
 
-    async function frageLöschen() {
+    async function frageObLöschen() {
         sichtbarkeitSetzen(true)
     }
 
@@ -99,7 +99,7 @@ export default function Index() {
             <Knopf beimKlicken={formularBestätigt} text={"Bestätigen"}/>
             <View style={styles.löschen}>
                 <Text style={styles.bigText}>Prüfung Löschen?</Text>
-                <Knopf beimKlicken={frageLöschen} text={"Löschen"}/>
+                <Knopf beimKlicken={frageObLöschen} text={"Löschen"}/>
             </View>
         </View>
     )
