@@ -24,7 +24,7 @@ export default function Index() {
 
             async function getNote() {
                 const daten = await getNoteById(id)
-                noteSetzen(daten[0])
+                noteSetzen(daten)
             }
 
             getNote()
