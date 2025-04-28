@@ -36,7 +36,7 @@ export default function Index() {
         await removeFach(id)
     }
 
-    function frageLöschen() {
+    function frageObLöschen() {
     }
 
     function zumBearbeiten() {
