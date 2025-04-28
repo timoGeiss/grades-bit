@@ -159,7 +159,7 @@ export async function insertIntoFach(name) {
     return result;
 }
 
-export async function insertIntoNote(fach_id, titel, wert, gewichtung) {
+export async function insertIntoNote(fach_id, titel, wert, gewichtung, errorSetzen) {
 
     const überprüfteNote = Number(wert)
     if (isNaN(überprüfteNote)) {
@@ -210,9 +210,22 @@ export async function updateFach(id, name) {
     return result;
 }
 
-export async function updateNote(id, titel, wert, gewichtung) {
-    const noteMitPunkt = wert.toString().replace(",", ".");
-    const gewichtungMitPunkt = gewichtung.toString().replace(",", ".");
+export async function updateNote(id, titel, wert, gewichtung, errorSetzen) {
+
+    const überprüfteNote = Number(wert)
+    if (isNaN(überprüfteNote)) {
+        errorSetzen("Die Note muss eine Zahl sein (Nur . erlaubt kein ,)")
+        return
+    }
+
+    const überprüfteGewichtung = Number(gewichtung)
+    if (isNaN(überprüfteGewichtung)) {
+        errorSetzen("Die Gewichtung muss eine Zahl sein (Nur . erlaubt kein ,)")
+        return
+    }
+
+    const noteMitPunkt = überprüfteNote.toString().replace(",", ".");
+    const gewichtungMitPunkt = überprüfteGewichtung.toString().replace(",", ".");
     const db = await main();
     let result;
     const insertProjectStatement = await db.prepareAsync(
