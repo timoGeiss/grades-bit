@@ -43,6 +43,8 @@ export default function Index() {
         router.push(`/fach/${id}/edit`)
     }
 
+     // TODO: Füge hier die Funktion fürs Navigieren zur Erstell Seite ein. 
+
     return (
         <View style={styles.container}>
 
