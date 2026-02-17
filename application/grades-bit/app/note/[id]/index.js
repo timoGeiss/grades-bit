@@ -40,26 +40,40 @@ export default function Index() {
     }
 
     async function formularBestätigt() {
-        // TODO: Baue hier dieselbe Validierung wie beim Erstellen der Note ein.
-        // Lösche das /* unterhalb dieses Kommentares
-        /*
-
         if (note.titel.length < 2) {
             errorSetzen("Titel ist zu kurz")
-        } else if (Titel Länge maximal 20) {
-
-        } else if (Note mindestens 1) {
-
-        } else if (Note maximum 6) {
-
-        } else if (Gewichtung mindestens 1) {
-
-        } else {
-            await updateNote(id, note.titel, note.wert, note.gewichtung, errorSetzen)
-        
-            // TODO: Navigiere hier zurück (Das hast du schon einmal auf der Notenerstellseite gemacht)
+            return
         }
-        /**/
+        if (note.titel.length > 20) {
+            errorSetzen("Titel ist zu lang")
+        }
+        if (note.wert < 1) {
+            errorSetzen("Note zu klein, min: 1")
+            return
+        }
+        if (note.wert > 6) {
+            errorSetzen("Note zu gross, max: 6")
+            return
+        }
+        if (note.gewichtung <= 0) {
+            errorSetzen("Gewichtung muss grösser 0 sein")
+            return
+        }
+
+        const überprüfteNote = Number(note.wert)
+        if (isNaN(überprüfteNote)) {
+            errorSetzen("Die Note muss eine Zahl sein (Nur . erlaubt kein ,)")
+            return
+        }
+
+        const überprüfteGewichtung = Number(note.gewichtung)
+        if (isNaN(überprüfteGewichtung)) {
+            errorSetzen("Die Gewichtung muss eine Zahl sein (Nur . erlaubt kein ,)")
+            return
+        }
+
+        await updateNote(id, note.titel, überprüfteNote, überprüfteGewichtung)
+        router.back()
     }
 
     if (!note) {

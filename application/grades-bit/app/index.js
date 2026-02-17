@@ -10,9 +10,18 @@ import Durchschnitt from "../components/Durchschnitt";
 import IconKnopf from "../components/Eingaben/IconKnopf";
 
 export default function index() {
+    const [noten, setNoten] = useState([])
+
 
     useFocusEffect(
         useCallback(() => {
+
+            async function alleNotenBekommen() {
+                const daten = await getAllNoten()
+                setNoten(daten)
+            }
+
+            alleNotenBekommen()
         }, [])
     );
 
@@ -24,7 +33,7 @@ export default function index() {
 
                 </View>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({

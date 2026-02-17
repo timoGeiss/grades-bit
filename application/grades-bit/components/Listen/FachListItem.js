@@ -5,11 +5,15 @@ import {getNotenByFachId} from "../../database";
 
 export default function FachListItem({fach}) {
 
+    function navigiereZuDetailAnsicht() {
 
+    }
 
     return (
         <View>
-            <Text style={[styles.text, styles.titel]} numberOfLines={1} ellipsizeMode={"tail"}>{fach.name}</Text>
+            <TouchableOpacity onPress={navigiereZuDetailAnsicht} style={styles.container}>
+                <Text style={[styles.text, styles.titel]} numberOfLines={1} ellipsizeMode={"tail"}>{fach.name}</Text>
+            </TouchableOpacity>
         </View>
     )
 }
