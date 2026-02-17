@@ -101,7 +101,7 @@ export default function Index() {
             <Knopf beimKlicken={formularBestätigt} text={"Bestätigen"} />
             <View style={styles.löschen}>
                 <Text style={styles.bigText}>Prüfung Löschen?</Text>
-                <Knopf beimKlicken={frageObLöschen} text={"Löschen"} />
+                <Knopf beimKlicken={frageObLöschen} text={"Löschen"}/>
             </View>
         </View>
     )
