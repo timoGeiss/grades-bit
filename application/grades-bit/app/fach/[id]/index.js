@@ -36,12 +36,14 @@ export default function Index() {
         await removeFach(id)
     }
 
-    function frageLöschen() {
+    function frageObLöschen() {
     }
 
     function zumBearbeiten() {
         router.push(`/fach/${id}/edit`)
     }
+
+     // TODO: Füge hier die Funktion fürs Navigieren zur Erstell Seite ein. 
 
     return (
         <View style={styles.container}>
