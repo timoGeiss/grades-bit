@@ -14,6 +14,7 @@ import Wunschnote from "../../../components/Wunschnote";
 export default function Index() {
     const {id} = useLocalSearchParams()
     const [istSichtbar, sichtbarkeitSetzen] = useState(false)
+    const [noten, setNoten] = useState([])
 
     useFocusEffect(
         useCallback(() => {
@@ -24,6 +25,13 @@ export default function Index() {
             async function FachLaden() {
 
             }
+
+            async function NotenLaden() {
+                const data = await getNotenByFachId(id)
+                setNoten(data)
+            }
+
+            NotenLaden()
 
         }, [id])
     );
@@ -43,11 +51,16 @@ export default function Index() {
         router.push(`/fach/${id}/edit`)
     }
 
-     // TODO: Füge hier die Funktion fürs Navigieren zur Erstell Seite ein. 
+     // TODO: Füge hier die Funktion fürs Navigieren zur Erstell Seite ein.
+     //       Du kannst von der Funkion zumBearbeiten() ableiten.
 
     return (
         <View style={styles.container}>
-
+            
+            
+            <View style={styles.list}>
+                <NotenListe noten={noten}/>
+            </View>
         </View>
     )
 }

@@ -17,7 +17,7 @@ export default function NoteErstellen() {
 
     async function formularBestätigt() {
         // TODO: Baue hier die Validierung, des Titels, der Note und der Gewichtung ein.
-        // Setzte die Bedingungen und das ErrorSetzten bei den übrigen Ifs
+        // Setzte die Bedingungen und das "errorSetzten" bei den übrigen Ifs
         
         // Lösche das /* unterhalb dieses Kommentares
         /*

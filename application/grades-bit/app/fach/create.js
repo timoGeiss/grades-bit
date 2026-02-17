@@ -2,7 +2,6 @@ import {useState} from "react";
 import {React, StyleSheet, Text, View} from "react-native";
 import {insertIntoFach} from "../../database";
 import {router} from "expo-router";
-import Knopf from "../../components/Eingaben/Knopf";
 import Textfeld from "../../components/Eingaben/Textfeld";
 import {StatusBar} from "expo-status-bar";
 

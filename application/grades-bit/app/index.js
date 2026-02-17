@@ -24,7 +24,7 @@ export default function index() {
 
                 </View>
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
