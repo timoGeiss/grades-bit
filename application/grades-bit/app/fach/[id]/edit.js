@@ -17,12 +17,13 @@ export default function Edit() {
         }
 
         async function FachLaden() {
-
+            const data = await getFachById(id);
+            fachSetzen(data);
         }
         FachLaden()
     }, [id]);
 
-    async function formularBestätigt() {
+    async function speichern() {
 
     }
 
@@ -35,6 +36,12 @@ export default function Edit() {
         <View style={styles.container}>
             <StatusBar/>
             <Text style={styles.bigText}>Beispieltext</Text>
+            <Textfeld
+                titel={"Name des Fachs"}
+                inhalt={fach.name}
+                wennInhaltVerändertWird={(neuerInhalt) => fachSetzen({...fach, name: neuerInhalt})}
+                platzhalter={"Neuer Name"}
+            />
 
             {error ? <Text style={styles.error}>{error}</Text> : null}
 

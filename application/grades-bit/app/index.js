@@ -10,18 +10,24 @@ import Durchschnitt from "../components/Durchschnitt";
 import IconKnopf from "../components/Eingaben/IconKnopf";
 
 export default function index() {
+    const [faecher, setFaecher] = useState([])
     const [noten, setNoten] = useState([])
 
 
     useFocusEffect(
         useCallback(() => {
 
-            async function alleNotenBekommen() {
+            async function LadeFaecher() {
+                const daten = await getAllFaecher()
+                setFaecher(daten)
+            }
+
+            async function LadeNoten() {
                 const daten = await getAllNoten()
                 setNoten(daten)
             }
 
-            alleNotenBekommen()
+            LadeNoten()
         }, [])
     );
 

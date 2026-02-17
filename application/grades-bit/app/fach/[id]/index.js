@@ -15,6 +15,7 @@ export default function Index() {
     const {id} = useLocalSearchParams()
     const [istSichtbar, sichtbarkeitSetzen] = useState(false)
     const [noten, setNoten] = useState([])
+    const [fach, setFach] = useState({})
 
     useFocusEffect(
         useCallback(() => {
@@ -56,11 +57,20 @@ export default function Index() {
 
     return (
         <View style={styles.container}>
-            
+            <StatusBar/>
+            <FrageFenster
+                text={"Dein Text"}
+                titel={"Dein Titel"}
+                istSichtbar={istSichtbar}
+                sichtbarkeitSetzen={sichtbarkeitSetzen}
+                wennAbbrechenAngeklickt={() => {}}
+                wennBesätigigenAngeklickt={fachLöschen}/>
+
             
             <View style={styles.list}>
                 <NotenListe noten={noten}/>
             </View>
+
         </View>
     )
 }
