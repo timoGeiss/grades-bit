@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 # Define variables
 BRANCH_NAME="revert-easy"
 FOLDER_NAME="grades-bit"
@@ -52,38 +53,54 @@ git checkout $BRANCH_NAME && git pull origin $BRANCH_NAME
 rm -rf .git
 echo "Deleted .git folder."
 
-chmod 777 ./DumpCodebase.sh
+chmod +x ./DumpCodebase.sh
 
 # Installing nvm
-echo "Curling nvm..."
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+echo "Installing or updating nvm..."
 
-sleep 4
+if [ ! -d "$HOME/.nvm" ]; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+else
+  echo "nvm already installed"
+fi
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-echo "Installing node 18"
-nvm install 18
-nvm use 18
+echo "Installing latest Node LTS..."
+nvm install --lts
+nvm use --lts
+nvm alias default 'lts/*'
 
-echo "Successfully installed nvm and node 18."
+echo "Node and nvm ready."
 
 cd application
 cd grades-bit
 
-echo "Trying to install node_modules⚙️..."
+echo "Trying to install node_modules..."
 
 sleep 2
 
+# optional: alte Installation entfernen
+rm -rf node_modules
+rm -f package-lock.json
+
+echo "Cleaning npm cache..."
 npm cache clean --force
+
+echo "Installing dependencies..."
 npm install
 
-echo "Successfully installed node_modules🗿"
+echo "Successfully installed node_modules 🗿"
 
-#Tries to resolve possible version conflicts
-echo "Upgrading expo packages..."
+# Expo Upgrade
+echo "Upgrading Expo SDK..."
+npx expo upgrade --non-interactive
+
+# Fix incompatible dependency versions
+echo "Fixing Expo dependency versions..."
 npx expo install --fix
+
+echo "Setup finished "
 
 code .
