@@ -32,7 +32,6 @@ sudo snap install firefox
 
 #Part2
 
-
 echo -e "\e[32m"
 # Check if the folder exists and delete it if present
 if [ -d "$FOLDER_NAME" ]; then
@@ -52,8 +51,6 @@ git checkout $BRANCH_NAME && git pull origin $BRANCH_NAME
 # Delete .git folder before running npm install
 rm -rf .git
 echo "Deleted .git folder."
-
-chmod +x ./DumpCodebase.sh
 
 # Installing nvm
 echo "Installing or updating nvm..."
