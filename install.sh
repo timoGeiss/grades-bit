@@ -92,7 +92,7 @@ echo "Successfully installed node_modules 🗿"
 
 # Expo Upgrade
 echo "Upgrading Expo SDK..."
-npx expo upgrade --non-interactive
+npx expo upgrade
 
 # Fix incompatible dependency versions
 echo "Fixing Expo dependency versions..."
