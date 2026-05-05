@@ -46,11 +46,7 @@ git clone $REPO_URL
 
 cd $FOLDER_NAME
 
-git checkout $BRANCH_NAME && git pull origin $BRANCH_NAME
-
-# Delete .git folder before running npm install
-rm -rf .git
-echo "Deleted .git folder."
+git checkout $BRANCH_NAME
 
 # Installing nvm
 echo "Installing or updating nvm..."
