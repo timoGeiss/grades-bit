@@ -34,7 +34,7 @@ export default function NoteErstellen() {
 
         } else {
 
-            await insertIntoNote(id, titel, note, gewichtung, errorSetzen);
+            await insertIntoNote(id, titel, note, gewichtung);
 
             // TODO: Navigiere hier zurück (Das hast du schon einmal auf der Facherstellungsseite gemacht)
         }
