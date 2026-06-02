@@ -4,6 +4,7 @@ import {insertIntoFach} from "../../database";
 import {router} from "expo-router";
 import Textfeld from "../../components/Eingaben/Textfeld";
 import {StatusBar} from "expo-status-bar";
+import Knopf from "../../components/Eingaben/Knopf";
 
 export default function FachErstellen() {
     const [name, nameSetzen] = useState("")
